@@ -99,6 +99,8 @@ func whichLexer(path string) string {
 		return "go"
 	} else if strings.HasSuffix(path, ".sh") {
 		return "console"
+	} else if strings.HasSuffix(path, ".lua") {
+		return "lua"
 	}
 	panic("No lexer for " + path)
 }
@@ -284,10 +286,10 @@ func parseExamples() []*Example {
 				example.Segs = append(example.Segs, sourceSegs)
 			}
 		}
-		newCodeHash := sha1Sum(example.GoCode)
-		if example.GoCodeHash != newCodeHash {
-			example.URLHash = resetURLHashFile(newCodeHash, example.GoCode, "examples/"+example.ID+"/"+example.ID+".hash")
-		}
+		//newCodeHash := sha1Sum(example.GoCode)
+		//if example.GoCodeHash != newCodeHash {
+		//	example.URLHash = resetURLHashFile(newCodeHash, example.GoCode, "examples/"+example.ID+"/"+example.ID+".hash")
+		//}
 		examples = append(examples, &example)
 	}
 	for i, example := range examples {
