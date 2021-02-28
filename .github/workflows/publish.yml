@@ -23,19 +23,27 @@ jobs:
         with:
           fetch-depth: 0 # fetch all history for all branches
 
-      - name: Remove old generated files
-        run: rm -rf public
-
       - name: Build site
         run: ./tools/generate
 
-      - name: Do Publish
+      - name: Configure Identity
         run: |
-          set -x
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git switch gh-pages
-          git add ./public
+
+      - name: Change Branch
+        run: git switch gh-pages
+
+      - name: Preserve CNAME & Copy new files
+        run: |
+          cp ./docs/CNAME .  # preserve CNAME
+          rm -rf ./docs      # remove old files
+          mv ./public ./docs # move new files into proper directory
+          cp ./CNAME ./docs/ # restore CNAME
+
+      - name: Commit and Publish
+        run: |
+          git add ./docs
           git commit -m "Publishing site at ${GITHUB_SHA} - $(date)"
           remote_repo="https://${GITHUB_ACTOR}:${{secrets.GITHUB_TOKEN}}@github.com/${GITHUB_REPOSITORY}.git"
           git push "${remote_repo}" HEAD:gh-pages
