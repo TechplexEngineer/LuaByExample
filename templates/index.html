@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lua by Example</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <body>
+    <div id="intro">
+      <h2><a href="./">Lua by Example</a></h2>
+      <p>
+        <a href="http://golang.org">Lua</a> is a lightweight,
+        high-level, multi-paradigm programming language designed primarily for
+        embedded use in applications.
+        Please read the official
+        <a href="http://www.lua.org/docs.html">documentation</a>
+        to learn a bit about Go code, tools packages,
+        and modules.
+      </p>
+
+      <p>
+        <em>Lua by Example</em> is a hands-on introduction
+        to Lua using annotated example programs. Check out
+        the <a href="hello-world">first example</a> or
+        browse the full list below.
+      </p>
+
+      <ul>
+      {{range .}}
+        <li><a href="{{.ID}}">{{.Name}}</a></li>
+      {{end}}
+      </ul>
+      <p class="footer">
+        by <a href="https://techplexlabs.com">Blake Bourque</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample">source</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample#license">license</a>
+      </p>
+    </div>
+  </body>
+</html>

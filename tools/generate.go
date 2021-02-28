@@ -306,7 +306,7 @@ func renderIndex(examples []*Example) {
 		fmt.Println("Rendering index")
 	}
 	indexTmpl := template.New("index")
-	_, err := indexTmpl.Parse(mustReadFile("templates/index.tmpl"))
+	_, err := indexTmpl.Parse(mustReadFile("templates/index.html"))
 	check(err)
 	indexF, err := os.Create(siteDir + "/index.html")
 	check(err)
@@ -319,7 +319,7 @@ func renderExamples(examples []*Example) {
 		fmt.Println("Rendering examples")
 	}
 	exampleTmpl := template.New("example")
-	_, err := exampleTmpl.Parse(mustReadFile("templates/example.tmpl"))
+	_, err := exampleTmpl.Parse(mustReadFile("templates/example.html"))
 	check(err)
 	for _, example := range examples {
 		exampleF, err := os.Create(siteDir + "/" + example.ID)
