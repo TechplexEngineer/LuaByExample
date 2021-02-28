@@ -20,6 +20,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Repo
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # fetch all history for all branches
 
       - name: Remove old generated files
         run: rm -rf public
