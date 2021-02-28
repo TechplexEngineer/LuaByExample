@@ -20,17 +20,17 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Repo
         uses: actions/checkout@v2
-        with:
-          submodules: true
+
+      - name: Checkout gh-pages branch
+        run: rm -rf public
 
       - name: Build site
         run: ./tools/generate
 
-      - name: Checkout gh-pages branch
+      - name: Do Publish
         run: |
-          git checkout gh-pages
-          mv public ..
-          rm -rf .
-          cp ../public/* .
-          git add .
+          git switch --orphan gh-pages
+          git add ./public
           git c -m "Publishing site at ${GITHUB_SHA} - $(date)"
+          remote_repo="https://${GITHUB_ACTOR}:${{secrets.GITHUB_TOKEN}}@github.com/${GITHUB_REPOSITORY}.git"
+          git push "${remote_repo}" HEAD:gh-pages
