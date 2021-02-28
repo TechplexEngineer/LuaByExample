@@ -126,6 +126,14 @@ td.code {
     vertical-align: top;
     background: #f0f0f0;
 }
+
+/* for code inline in examples with backticks */
+code {
+    border-radius: 5px;
+    padding: 2px;
+    vertical-align: top;
+    background: #f0f0f0;
+}
 td.code.leading {
     padding-bottom: 11px;
 }
