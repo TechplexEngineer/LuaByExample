@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lua by Example: Values</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+              window.location.href = 'hello-world';
+          }
+          
+          
+          if (e.key == "ArrowRight") {
+              window.location.href = 'variables';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="values">
+      <h2><a href="./">Lua by Example</a>: Values</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Lua has eight basic types: nil, boolean,
+number, string, userdata, function, thread, and table</p>
+
+          </td>
+          <td class="code empty leading">
+            
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Strings, which can be added together with <code>..</code></p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma">
+<span class="n">print</span><span class="p">(</span><span class="s2">&#34;lua&#34;</span> <span class="o">..</span> <span class="s2">&#34;lang&#34;</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Numbers and math</p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma">
+<span class="n">print</span><span class="p">(</span><span class="s2">&#34;1+1 =&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="s2">&#34;7.0/3.0 =&#34;</span><span class="p">,</span> <span class="mf">7.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Booleans, with boolean operators</p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma">
+<span class="n">print</span><span class="p">(</span><span class="kc">true</span> <span class="ow">and</span> <span class="kc">false</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="kc">true</span> <span class="ow">or</span> <span class="kc">false</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="ow">not</span> <span class="kc">true</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Parenthesis can be used to control order of operations</p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma">
+<span class="n">print</span><span class="p">(</span><span class="kc">true</span> <span class="ow">or</span> <span class="p">(</span><span class="kc">true</span> <span class="ow">and</span> <span class="kc">false</span><span class="p">))</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Note that nil is false</p>
+
+          </td>
+          <td class="code">
+            
+          <pre class="chroma">
+<span class="kr">if</span> <span class="kc">nil</span> <span class="kr">then</span>
+    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+<span class="kr">else</span>
+    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;false&#39;</span><span class="p">)</span>
+<span class="kr">end</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+          <pre class="chroma"><span class="gp">$</span> lua values.lua</pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="variables">Variables</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://techplexlabs.com">Blake Bourque</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample/blob/master/examples/values">source</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample#license">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>

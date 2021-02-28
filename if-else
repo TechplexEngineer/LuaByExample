@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lua by Example: If/Else</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+              window.location.href = 'while';
+          }
+          
+          
+          if (e.key == "ArrowRight") {
+              window.location.href = 'functions';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="if-else">
+      <h2><a href="./">Lua by Example</a>: If/Else</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Branching with <code>if</code> and <code>else</code> in lua is straight-forward.</p>
+
+          </td>
+          <td class="code empty leading">
+            
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Here&rsquo;s a basic example.
+Note that you don&rsquo;t need parentheses around conditions</p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma">
+<span class="kr">if</span> <span class="mi">7</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span>
+    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;7 is even&#34;</span><span class="p">)</span>
+<span class="kr">else</span>
+    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;7 is odd&#34;</span><span class="p">)</span>
+<span class="kr">end</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>You can have an <code>if</code> statement without an else.</p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma">
+<span class="kr">if</span> <span class="mi">8</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span>
+    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;8 is divisible by 4&#34;</span><span class="p">)</span>
+<span class="kr">end</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>And an <code>elseif</code> example</p>
+
+          </td>
+          <td class="code">
+            
+          <pre class="chroma">
+<span class="kd">local</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="kr">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">then</span>
+    <span class="n">print</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="s2">&#34;is negative&#34;</span><span class="p">)</span>
+<span class="kr">elseif</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="kr">then</span>
+    <span class="n">print</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="s2">&#34;has 1 digit&#34;</span><span class="p">)</span>
+<span class="kr">else</span>
+    <span class="n">print</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="s2">&#34;has multiple digits&#34;</span><span class="p">)</span>
+<span class="kr">end</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+          <pre class="chroma"><span class="gp">$</span> lua if-else.lua</pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="functions">Functions</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://techplexlabs.com">Blake Bourque</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample/blob/master/examples/if-else">source</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample#license">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>

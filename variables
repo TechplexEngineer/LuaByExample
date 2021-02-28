@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lua by Example: Variables</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+              window.location.href = 'values';
+          }
+          
+          
+          if (e.key == "ArrowRight") {
+              window.location.href = 'for';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="variables">
+      <h2><a href="./">Lua by Example</a>: Variables</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>In Lua, <em>variables</em> are declared on first use as global.</p>
+
+          </td>
+          <td class="code empty leading">
+            
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p><code>first</code> is a global variable.</p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma">
+<span class="n">first</span> <span class="o">=</span> <span class="s2">&#34;initial&#34;</span>
+<span class="n">print</span><span class="p">(</span><span class="n">first</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>You can declare multiple variables at once.</p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma">
+<span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">print</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Often variables should be declared local to avoid polluting the global scope.</p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma">
+<span class="kd">local</span> <span class="n">d</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="n">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Variables have no predefined types; any variable may contain values of any type.</p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma">
+<span class="kd">local</span> <span class="n">value</span> <span class="o">=</span> <span class="s2">&#34;starts as a string&#34;</span>
+<span class="n">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Assigning a value of a another type</p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma">
+<span class="n">value</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>To unset the value, assign nil</p>
+
+          </td>
+          <td class="code">
+            
+          <pre class="chroma">
+<span class="n">value</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="n">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+          <pre class="chroma"><span class="gp">$</span> lua variables.lua</pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="for">For</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://techplexlabs.com">Blake Bourque</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample/blob/master/examples/variables">source</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample#license">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
+    </script>
+    <script src="site.js" async></script>
+  </body>
+</html>
