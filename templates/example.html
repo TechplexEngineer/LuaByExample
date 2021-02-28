@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Lua by Example: {{.Name}}</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="/site.css">
   </head>
   <script>
       onkeydown = (e) => {
@@ -21,7 +21,7 @@
   </script>
   <body>
     <div class="example" id="{{.ID}}">
-      <h2><a href="./">Lua by Example</a>: {{.Name}}</h2>
+      <h2><a href="/">Lua by Example</a>: {{.Name}}</h2>
       {{range .Segs}}
       <table>
         {{range .}}
@@ -39,7 +39,7 @@
       {{end}}
       {{if .NextExample}}
       <p class="next">
-        Next example: <a href="{{.NextExample.ID}}">{{.NextExample.Name}}</a>.
+        Next example: <a href="/{{.NextExample.ID}}">{{.NextExample.Name}}</a>.
       </p>
       {{end}}
       <p class="footer">
@@ -52,6 +52,6 @@
       var codeLines = [];
       {{range .Segs}}{{range .}}codeLines.push('{{js .CodeForJs}}');{{end}}{{end}}
     </script>
-    <script src="site.js" async></script>
+    <script src="/site.js" async></script>
   </body>
 </html>
