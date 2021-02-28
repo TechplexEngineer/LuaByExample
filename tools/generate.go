@@ -2,16 +2,15 @@ package main
 
 import (
 	"bytes"
-	"crypto/sha1"
 	"fmt"
 	"github.com/alecthomas/chroma"
 	"github.com/alecthomas/chroma/formatters/html"
 	"github.com/alecthomas/chroma/lexers"
 	"github.com/alecthomas/chroma/styles"
 	"io/ioutil"
-	"net/http"
 	"os"
 	"os/exec"
+	"path"
 	"path/filepath"
 	"regexp"
 	"strings"
@@ -59,24 +58,17 @@ func pipe(bin string, arg []string, src string) []byte {
 	check(err)
 	err = in.Close()
 	check(err)
-	bytes, err := ioutil.ReadAll(out)
+	fileBytes, err := ioutil.ReadAll(out)
 	check(err)
 	err = cmd.Wait()
 	check(err)
-	return bytes
-}
-
-func sha1Sum(s string) string {
-	h := sha1.New()
-	h.Write([]byte(s))
-	b := h.Sum(nil)
-	return fmt.Sprintf("%x", b)
+	return fileBytes
 }
 
 func mustReadFile(path string) string {
-	bytes, err := ioutil.ReadFile(path)
+	fileBytes, err := ioutil.ReadFile(path)
 	check(err)
-	return string(bytes)
+	return string(fileBytes)
 }
 
 func markdown(src string) string {
@@ -107,12 +99,13 @@ func whichLexer(path string) string {
 
 func debug(msg string) {
 	if os.Getenv("DEBUG") == "1" {
-		fmt.Fprintln(os.Stderr, msg)
+		_, err := fmt.Fprintln(os.Stderr, msg)
+		check(err)
 	}
 }
 
 var docsPat = regexp.MustCompile(`^\s*(//|#|--)\s`) //"^\\s*(\\/\\/|#)\\s"
-var dashPat = regexp.MustCompile("\\-+")
+var dashPat = regexp.MustCompile(`-+"`)
 
 // Seg is a segment of an example
 type Seg struct {
@@ -138,27 +131,6 @@ type Example struct {
 	NextExample *Example
 }
 
-func parseHashFile(sourcePath string) (string, string) {
-	lines := readLines(sourcePath)
-	return lines[0], lines[1]
-}
-
-func resetURLHashFile(codehash, code, sourcePath string) string {
-	if verbose() {
-		fmt.Println("  Sending request to play.golang.org")
-	}
-	payload := strings.NewReader(code)
-	resp, err := http.Post("https://play.golang.org/share", "text/plain", payload)
-	check(err)
-	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
-	check(err)
-	urlkey := string(body)
-	data := fmt.Sprintf("%s\n%s\n", codehash, urlkey)
-	ioutil.WriteFile(sourcePath, []byte(data), 0644)
-	return urlkey
-}
-
 func parseSegs(sourcePath string) ([]*Seg, string) {
 	var (
 		lines  []string
@@ -169,8 +141,8 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
 		lines = append(lines, strings.Replace(line, "\t", "    ", -1))
 		source = append(source, line)
 	}
-	filecontent := strings.Join(source, "\n")
-	segs := []*Seg{}
+	fileContent := strings.Join(source, "\n")
+	segments := []*Seg{}
 	lastSeen := ""
 	for _, line := range lines {
 		if line == "" {
@@ -179,8 +151,8 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
 		}
 		matchDocs := docsPat.MatchString(line)
 		matchCode := !matchDocs
-		newDocs := (lastSeen == "") || ((lastSeen != "docs") && (segs[len(segs)-1].Docs != ""))
-		newCode := (lastSeen == "") || ((lastSeen != "code") && (segs[len(segs)-1].Code != ""))
+		newDocs := (lastSeen == "") || ((lastSeen != "docs") && (segments[len(segments)-1].Docs != ""))
+		newCode := (lastSeen == "") || ((lastSeen != "code") && (segments[len(segments)-1].Code != ""))
 		if newDocs || newCode {
 			debug("NEWSEG")
 		}
@@ -188,29 +160,29 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
 			trimmed := docsPat.ReplaceAllString(line, "")
 			if newDocs {
 				newSeg := Seg{Docs: trimmed, Code: ""}
-				segs = append(segs, &newSeg)
+				segments = append(segments, &newSeg)
 			} else {
-				segs[len(segs)-1].Docs = segs[len(segs)-1].Docs + "\n" + trimmed
+				segments[len(segments)-1].Docs = segments[len(segments)-1].Docs + "\n" + trimmed
 			}
 			debug("DOCS: " + line)
 			lastSeen = "docs"
 		} else if matchCode {
 			if newCode {
 				newSeg := Seg{Docs: "", Code: line}
-				segs = append(segs, &newSeg)
+				segments = append(segments, &newSeg)
 			} else {
-				segs[len(segs)-1].Code = segs[len(segs)-1].Code + "\n" + line
+				segments[len(segments)-1].Code = segments[len(segments)-1].Code + "\n" + line
 			}
 			debug("CODE: " + line)
 			lastSeen = "code"
 		}
 	}
-	for i, seg := range segs {
-		seg.CodeEmpty = (seg.Code == "")
-		seg.CodeLeading = (i < (len(segs) - 1))
+	for i, seg := range segments {
+		seg.CodeEmpty = seg.Code == ""
+		seg.CodeLeading = i < (len(segments) - 1)
 		seg.CodeRun = strings.Contains(seg.Code, "package main")
 	}
-	return segs, filecontent
+	return segments, fileContent
 }
 
 func chromaFormat(code, filePath string) string {
@@ -287,20 +259,14 @@ func parseExamples() []*Example {
 		example.Segs = make([][]*Seg, 0)
 		sourcePaths := mustGlob("examples/" + exampleID + "/*")
 		for _, sourcePath := range sourcePaths {
-			if strings.HasSuffix(sourcePath, ".hash") {
-				example.GoCodeHash, example.URLHash = parseHashFile(sourcePath)
-			} else {
-				sourceSegs, filecontents := parseAndRenderSegs(sourcePath)
-				if filecontents != "" {
-					example.GoCode = filecontents
-				}
-				example.Segs = append(example.Segs, sourceSegs)
+
+			sourceSegments, fileContent := parseAndRenderSegs(sourcePath)
+			if fileContent != "" {
+				example.GoCode = fileContent
 			}
+			example.Segs = append(example.Segs, sourceSegments)
+
 		}
-		//newCodeHash := sha1Sum(example.GoCode)
-		//if example.GoCodeHash != newCodeHash {
-		//	example.URLHash = resetURLHashFile(newCodeHash, example.GoCode, "examples/"+example.ID+"/"+example.ID+".hash")
-		//}
 		examples = append(examples, &example)
 	}
 	for i, example := range examples {
