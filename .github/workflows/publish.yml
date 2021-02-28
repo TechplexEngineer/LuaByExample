@@ -21,7 +21,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Checkout gh-pages branch
+      - name: Remove old generated files
         run: rm -rf public
 
       - name: Build site
@@ -31,6 +31,6 @@ jobs:
         run: |
           git switch --orphan gh-pages
           git add ./public
-          git c -m "Publishing site at ${GITHUB_SHA} - $(date)"
+          git commit -m "Publishing site at ${GITHUB_SHA} - $(date)"
           remote_repo="https://${GITHUB_ACTOR}:${{secrets.GITHUB_TOKEN}}@github.com/${GITHUB_REPOSITORY}.git"
           git push "${remote_repo}" HEAD:gh-pages
