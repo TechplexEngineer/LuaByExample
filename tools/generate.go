@@ -257,6 +257,9 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string) {
 func parseExamples() []*Example {
 	var exampleNames []string
 	for _, line := range readLines("examples.txt") {
+		if strings.HasPrefix(line, "###END") {
+			break
+		}
 		if line != "" && !strings.HasPrefix(line, "#") {
 			exampleNames = append(exampleNames, line)
 		}
