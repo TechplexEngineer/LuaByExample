@@ -335,9 +335,11 @@ func renderExamples(examples []*Example) {
 	_, err := exampleTmpl.Parse(mustReadFile("templates/example.html"))
 	check(err)
 	for _, example := range examples {
-		exampleF, err := os.Create(siteDir + "/" + example.ID)
+		dir := siteDir + "/" + example.ID
+		check(os.MkdirAll(dir, 0755))
+		exampleF, err := os.Create(path.Join(dir, "index.html"))
 		check(err)
-		exampleTmpl.Execute(exampleF, example)
+		check(exampleTmpl.Execute(exampleF, example))
 	}
 }
 
