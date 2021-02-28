@@ -111,23 +111,31 @@ func debug(msg string) {
 	}
 }
 
-var docsPat = regexp.MustCompile("^\\s*(\\/\\/|#)\\s")
+var docsPat = regexp.MustCompile(`^\s*(//|#|--)\s`) //"^\\s*(\\/\\/|#)\\s"
 var dashPat = regexp.MustCompile("\\-+")
 
 // Seg is a segment of an example
 type Seg struct {
-	Docs, DocsRendered              string
-	Code, CodeRendered, CodeForJs   string
-	CodeEmpty, CodeLeading, CodeRun bool
+	Docs         string
+	DocsRendered string
+	Code         string
+	CodeRendered string
+	CodeForJs    string
+	CodeEmpty    bool
+	CodeLeading  bool
+	CodeRun      bool
 }
 
 // Example is info extracted from an example file
 type Example struct {
-	ID, Name                    string
-	GoCode, GoCodeHash, URLHash string
-	Segs                        [][]*Seg
-	PrevExample                 *Example
-	NextExample                 *Example
+	ID          string
+	Name        string
+	GoCode      string
+	GoCodeHash  string
+	URLHash     string
+	Segs        [][]*Seg
+	PrevExample *Example
+	NextExample *Example
 }
 
 func parseHashFile(sourcePath string) (string, string) {
