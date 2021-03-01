@@ -25,7 +25,7 @@ jobs:
       - name: Install Lua
         run: |
           set -x
-          brew install lua@5.3
+          brew install lua
           which lua
 #          sudo apt-get install -y lua5.3
 #          echo $PATH
