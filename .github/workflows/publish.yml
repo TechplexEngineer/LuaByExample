@@ -25,11 +25,11 @@ jobs:
       - name: Install Lua
         run: |
           set -x
-          sudo apt-get install lua5.3
+          sudo apt-get install -y lua5.3
           echo $PATH
           dpkg -L lua5.3
           which lua5.3
-          which lua
+          update-alternatives --all
 
       - name: Build site
         run: ./tools/generate
