@@ -24,7 +24,7 @@ jobs:
 
       - name: Install Lua
         run: |
-          apt-get install lua
+          sudo apt-get install lua
 
       - name: Build site
         run: ./tools/generate
