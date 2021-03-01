@@ -8,6 +8,7 @@ import (
 	"github.com/alecthomas/chroma/lexers"
 	"github.com/alecthomas/chroma/styles"
 	"io/ioutil"
+	"log"
 	"os"
 	"os/exec"
 	"path"
@@ -47,10 +48,13 @@ func copyFile(src, dst string) {
 }
 
 func pipe(bin string, arg []string, src string) []byte {
+	fmt.Printf("cmd: %s - %v\n", bin, arg)
 	cmd := exec.Command(bin, arg...)
 	in, err := cmd.StdinPipe()
 	check(err)
 	out, err := cmd.StdoutPipe()
+	check(err)
+	stderr, err := cmd.StderrPipe()
 	check(err)
 	err = cmd.Start()
 	check(err)
@@ -60,8 +64,16 @@ func pipe(bin string, arg []string, src string) []byte {
 	check(err)
 	fileBytes, err := ioutil.ReadAll(out)
 	check(err)
-	err = cmd.Wait()
+	out.Close()
+	stderrB, err := ioutil.ReadAll(stderr)
 	check(err)
+	stderr.Close()
+	err = cmd.Wait()
+	if err != nil {
+		fmt.Printf("ERROR: %s - %s\n", stderrB, err)
+		check(err)
+	}
+	//check(err)
 	return fileBytes
 }
 
@@ -106,6 +118,7 @@ func debug(msg string) {
 
 var docsPat = regexp.MustCompile(`^\s*(//|#|--)\s`) //"^\\s*(\\/\\/|#)\\s"
 var dashPat = regexp.MustCompile(`-+"`)
+var promptPat = regexp.MustCompile(`^\$\slua\s`)
 
 // Seg is a segment of an example
 type Seg struct {
@@ -132,15 +145,37 @@ type Example struct {
 }
 
 func parseSegs(sourcePath string) ([]*Seg, string) {
+
+	log.Printf("====> Processing: %s", sourcePath)
 	var (
 		lines  []string
 		source []string
 	)
+
+	eval := strings.HasSuffix(sourcePath, ".sh")
+	wd, _ := os.Getwd()
+
+
 	// Convert tabs to spaces for uniform rendering.
 	for _, line := range readLines(sourcePath) {
 		lines = append(lines, strings.Replace(line, "\t", "    ", -1))
 		source = append(source, line)
+		if eval && promptPat.MatchString(line) {
+			l := promptPat.ReplaceAllString(line, "")
+			log.Printf("Path: %s", path.Dir(sourcePath))
+			os.Chdir(path.Dir(sourcePath))
+			pwd, _ := os.Getwd()
+			fmt.Printf("exe: |%s| pwd: %s\n", l, pwd)
+
+			res := pipe("lua", strings.Split(l, " "), "")
+			fmt.Printf("RESULT: %s", res)
+			for _, out := range strings.Split(string(res), "\n") {
+				lines = append(lines, out)
+			}
+		}
 	}
+	os.Chdir(wd)
+	fmt.Printf("----------------\n\n")
 	fileContent := strings.Join(source, "\n")
 	segments := []*Seg{}
 	lastSeen := ""
@@ -180,6 +215,7 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
 	for i, seg := range segments {
 		seg.CodeEmpty = seg.Code == ""
 		seg.CodeLeading = i < (len(segments) - 1)
+
 		seg.CodeRun = strings.Contains(seg.Code, "package main")
 	}
 	return segments, fileContent
@@ -216,7 +252,9 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string) {
 	lexer := whichLexer(sourcePath)
 	for _, seg := range segs {
 		if seg.Docs != "" {
+			//fmt.Printf("docs: |%s|\n", seg.Docs)
 			seg.DocsRendered = markdown(seg.Docs)
+			//fmt.Printf("docs: |%s| - |%s|\n", seg.Docs, seg.DocsRendered)
 		}
 		if seg.Code != "" {
 			seg.CodeRendered = chromaFormat(seg.Code, sourcePath)

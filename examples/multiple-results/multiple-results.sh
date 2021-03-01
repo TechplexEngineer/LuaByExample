@@ -1,4 +1,4 @@
-$ lua multiple-return-values.lua
+$ lua multiple-results.lua
 
 
 # Accepting a variable number of arguments is another nice

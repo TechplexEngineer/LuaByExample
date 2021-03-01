@@ -1,19 +1,20 @@
 -- Lua has eight basic types: nil, boolean,
--- number, string, userdata, function, thread, and table
+-- number, string, userdata, function, thread, and table.
+-- Here are a few examples.
 
--- Strings, which can be added together with `..`
+-- - Strings, which can be concatenated together with `..`
 print("lua" .. "lang")
 
--- Numbers and math
+-- - Numbers and math
 print("1+1 =", 1+1)
 print("7.0/3.0 =", 7.0/3.0)
 
--- Booleans, with boolean operators
+-- - Booleans, with boolean operators
 print(true and false)
 print(true or false)
 print(not true)
 
--- Parenthesis can be used to control order of operations
+-- - Parenthesis can be used to control order of operations
 print(true or (true and false))
 
 -- Note that nil is false

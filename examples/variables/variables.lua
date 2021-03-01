@@ -15,9 +15,9 @@ print(d)
 -- Variables have no predefined types; any variable may contain values of any type.
 local value = "starts as a string"
 print(value)
--- Assigning a value of a another type
+-- - Assigning a value of a another type
 value = 5
 print(value)
--- To unset the value, assign nil
+-- - To unset the value, assign nil
 value = nil
 print(value)
