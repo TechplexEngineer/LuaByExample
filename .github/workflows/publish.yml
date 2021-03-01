@@ -22,6 +22,10 @@ jobs:
         with:
           fetch-depth: 0 # fetch all history for all branches
 
+      - name: Install Lua
+        run: |
+          apt-get install lua
+
       - name: Build site
         run: ./tools/generate
 
