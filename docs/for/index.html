@@ -8,13 +8,13 @@
   <script>
       onkeydown = (e) => {
           
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'variables';
+          if (e.key === "ArrowLeft") {
+              window.location.href = '/variables';
           }
           
           
-          if (e.key == "ArrowRight") {
-              window.location.href = 'while';
+          if (e.key === "ArrowRight") {
+              window.location.href = '/while';
           }
           
       }
@@ -33,6 +33,9 @@ some basic types of <code>for</code> loops.</p>
           </td>
           <td class="code empty leading">
             
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
           
           </td>
         </tr>
@@ -40,15 +43,18 @@ some basic types of <code>for</code> loops.</p>
         <tr>
           <td class="docs">
             <p>A three expression loop is called a <em>numeric for</em> loop
-i=1 is the initial condition, 10 is the end condition, 1 is the step increment
+i=1 is the initial condition, 5 is the end condition, 1 is the step increment
 the third expression is optional, when omitted 1 is used as the step.</p>
 
           </td>
           <td class="code leading">
             
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
           <pre class="chroma">
-<span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span> <span class="kr">do</span>
-    <span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span> <span class="kr">do</span>
+    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;first: &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
 <span class="kr">end</span></pre>
           </td>
         </tr>
@@ -60,6 +66,9 @@ despite the lack of the local keyword.</p>
 
           </td>
           <td class="code leading">
+            
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
 <span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1">-- will print nil</span></pre>
@@ -73,9 +82,12 @@ despite the lack of the local keyword.</p>
           </td>
           <td class="code leading">
             
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
           <pre class="chroma">
 <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span> <span class="kr">do</span>
-    <span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;brk: &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="kr">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span> <span class="kr">then</span>
         <span class="kr">break</span>
     <span class="kr">end</span>
@@ -91,9 +103,13 @@ print all values of array <code>arr</code></p>
           </td>
           <td class="code leading">
             
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
           <pre class="chroma">
+<span class="n">arr</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
 <span class="kr">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="kr">in</span> <span class="n">ipairs</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="kr">do</span>
-    <span class="n">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;arr: &#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
 <span class="kr">end</span></pre>
           </td>
         </tr>
@@ -106,10 +122,11 @@ prints odd numbers in [|1,10|]</p>
           </td>
           <td class="code">
             
+            
           <pre class="chroma">
-<span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span> <span class="kr">do</span>
+<span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span> <span class="kr">do</span>
   <span class="kr">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span> <span class="kr">goto</span> <span class="nl">continue</span> <span class="kr">end</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">print</span><span class="p">(</span><span class="s1">&#39;odd: &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
   <span class="p">::</span><span class="nl">continue</span><span class="p">::</span>
 <span class="kr">end</span></pre>
           </td>
@@ -125,7 +142,28 @@ prints odd numbers in [|1,10|]</p>
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><span class="gp">$</span> lua for.lua</pre>
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
+          <pre class="chroma"><span class="gp">$</span> lua for.lua
+<span class="go">first: 	1
+</span><span class="go">first: 	2
+</span><span class="go">first: 	3
+</span><span class="go">first: 	4
+</span><span class="go">first: 	5
+</span><span class="go">nil
+</span><span class="go">brk: 	1
+</span><span class="go">brk: 	2
+</span><span class="go">brk: 	3
+</span><span class="go">brk: 	4
+</span><span class="go">brk: 	5
+</span><span class="go">arr: 	1
+</span><span class="go">arr: 	2
+</span><span class="go">arr: 	3
+</span><span class="go">arr: 	4
+</span><span class="go">odd: 	1
+</span><span class="go">odd: 	3
+</span><span class="go">odd: 	5</span></pre>
           </td>
         </tr>
         
@@ -137,6 +175,7 @@ structures.</p>
 
           </td>
           <td class="code empty">
+            
             
           
           </td>
@@ -157,7 +196,7 @@ structures.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('for i\u003D1, 5, 1 do\u000A    print(\'first: \', i)\u000Aend\u000A');codeLines.push('print(i) -- will print nil\u000A');codeLines.push('for i\u003D1, 10, 1 do\u000A    print(\'brk: \', i)\u000A    if i \u003D\u003D 5 then\u000A        break\u000A    end\u000Aend\u000A');codeLines.push('arr \u003D {1, 2, 3, 4}\u000Afor i,v in ipairs(arr) do\u000A    print(\'arr: \', v)\u000Aend\u000A');codeLines.push('for i\u003D1, 5 do\u000A  if i % 2 \u003D\u003D 0 then goto continue end\u000A  print(\'odd: \', i)\u000A  ::continue::\u000Aend\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="/site.js" async></script>
   </body>

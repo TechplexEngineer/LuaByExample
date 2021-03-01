@@ -8,13 +8,13 @@
   <script>
       onkeydown = (e) => {
           
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'if-else';
+          if (e.key === "ArrowLeft") {
+              window.location.href = '/if-else';
           }
           
           
-          if (e.key == "ArrowRight") {
-              window.location.href = 'multiple-results';
+          if (e.key === "ArrowRight") {
+              window.location.href = '/multiple-results';
           }
           
       }
@@ -33,6 +33,9 @@ functions with a few different examples.</p>
           </td>
           <td class="code empty leading">
             
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
           
           </td>
         </tr>
@@ -44,6 +47,9 @@ their sum.</p>
 
           </td>
           <td class="code leading">
+            
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
 <span class="kd">local</span> <span class="kr">function</span> <span class="nf">plus</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span></pre>
@@ -59,6 +65,9 @@ expression.</p>
           </td>
           <td class="code leading">
             
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
           <pre class="chroma">
     <span class="kr">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 <span class="kr">end</span></pre>
@@ -71,6 +80,9 @@ expression.</p>
 
           </td>
           <td class="code leading">
+            
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
 <span class="n">print</span><span class="p">(</span><span class="s2">&#34;1+2 =&#34;</span> <span class="o">..</span> <span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span></pre>
@@ -88,6 +100,9 @@ such as packages and object-oriented programming.</p>
           </td>
           <td class="code leading">
             
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
           <pre class="chroma">
 <span class="kd">local</span> <span class="n">subtract</span> <span class="o">=</span> <span class="kr">function</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="kr">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
@@ -101,6 +116,9 @@ such as packages and object-oriented programming.</p>
 
           </td>
           <td class="code leading">
+            
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
 <span class="n">print</span><span class="p">(</span><span class="s2">&#34;2-1 =&#34;</span> <span class="o">..</span> <span class="n">subtract</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span></pre>
@@ -116,6 +134,7 @@ larger Lua programs where where lua files are required by other lua files.</p>
           </td>
           <td class="code empty">
             
+            
           
           </td>
         </tr>
@@ -130,7 +149,12 @@ larger Lua programs where where lua files are required by other lua files.</p>
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><span class="gp">$</span> lua functions.lua</pre>
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
+          <pre class="chroma"><span class="gp">$</span> lua functions.lua
+<span class="go">1+2 =3
+</span><span class="go">2-1 =1</span></pre>
           </td>
         </tr>
         
@@ -141,6 +165,7 @@ multiple return values, which we&rsquo;ll look at next.</p>
 
           </td>
           <td class="code empty">
+            
             
           
           </td>
@@ -161,7 +186,7 @@ multiple return values, which we&rsquo;ll look at next.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('local function plus (a, b)\u000A');codeLines.push('    return a + b\u000Aend\u000A');codeLines.push('print(\"1+2 \u003D\" .. plus(1,2))\u000A');codeLines.push('local subtract \u003D function (a, b)\u000A    return a - b\u000Aend\u000A');codeLines.push('print(\"2-1 \u003D\" .. subtract(2,1))\u000A');codeLines.push('');codeLines.push('');codeLines.push('');
     </script>
     <script src="/site.js" async></script>
   </body>

@@ -9,8 +9,8 @@
       onkeydown = (e) => {
           
           
-          if (e.key == "ArrowRight") {
-              window.location.href = 'values';
+          if (e.key === "ArrowRight") {
+              window.location.href = '/values';
           }
           
       }
@@ -29,6 +29,7 @@ message. Here&rsquo;s the full source code.</p>
           </td>
           <td class="code">
             
+            
           <pre class="chroma">
 <span class="n">print</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span></pre>
           </td>
@@ -40,14 +41,18 @@ message. Here&rsquo;s the full source code.</p>
         
         <tr>
           <td class="docs">
-            <p>To run the program, put the code in <code>hello-world.lua</code> and
-use <code>lua</code>.</p>
+            <p>To run the above program, put the code in a file named <code>hello-world.lua</code> and
+use the <code>lua</code> command to run the file like this:</p>
 
           </td>
           <td class="code leading">
             
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
           <pre class="chroma">
-<span class="gp">$</span> lua hello-world.lua</pre>
+<span class="gp">$</span> lua hello-world.lua
+<span class="go">hello world</span></pre>
           </td>
         </tr>
         
@@ -58,6 +63,7 @@ learn more about the language.</p>
 
           </td>
           <td class="code empty">
+            
             
           
           </td>
@@ -78,7 +84,7 @@ learn more about the language.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('print(\'hello world\')\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="/site.js" async></script>
   </body>

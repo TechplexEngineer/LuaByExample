@@ -8,13 +8,13 @@
   <script>
       onkeydown = (e) => {
           
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'functions';
+          if (e.key === "ArrowLeft") {
+              window.location.href = '/functions';
           }
           
           
-          if (e.key == "ArrowRight") {
-              window.location.href = 'variadic-functions';
+          if (e.key === "ArrowRight") {
+              window.location.href = '/variadic-functions';
           }
           
       }
@@ -32,6 +32,9 @@
           </td>
           <td class="code empty leading">
             
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
           
           </td>
         </tr>
@@ -42,6 +45,9 @@
 
           </td>
           <td class="code leading">
+            
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
 <span class="kd">local</span> <span class="kr">function</span> <span class="nf">values</span><span class="p">()</span>
@@ -58,6 +64,9 @@ call with <em>multiple assignment</em>.</p>
           </td>
           <td class="code leading">
             
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
           <pre class="chroma">
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">values</span><span class="p">()</span>
 <span class="n">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -73,6 +82,9 @@ use the blank identifier <code>_</code>.</p>
           </td>
           <td class="code leading">
             
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
           <pre class="chroma">
 <span class="n">_</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">values</span><span class="p">()</span>
 <span class="n">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></pre>
@@ -86,6 +98,7 @@ more examples that cover the many edge cases</p>
 
           </td>
           <td class="code empty">
+            
             
           
           </td>
@@ -101,7 +114,13 @@ more examples that cover the many edge cases</p>
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><span class="gp">$</span> lua multiple-return-values.lua</pre>
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
+          <pre class="chroma"><span class="gp">$</span> lua multiple-results.lua
+<span class="go">3
+</span><span class="go">7
+</span><span class="go">7</span></pre>
           </td>
         </tr>
         
@@ -112,6 +131,7 @@ feature of Lua functions; we&rsquo;ll look at this next.</p>
 
           </td>
           <td class="code empty">
+            
             
           
           </td>
@@ -132,7 +152,7 @@ feature of Lua functions; we&rsquo;ll look at this next.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('local function values()\u000A    return 3, 7\u000Aend\u000A');codeLines.push('a, b \u003D values()\u000Aprint(a)\u000Aprint(b)\u000A');codeLines.push('_, c \u003D values()\u000Aprint(c)\u000A');codeLines.push('');codeLines.push('');codeLines.push('');
     </script>
     <script src="/site.js" async></script>
   </body>

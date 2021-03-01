@@ -8,13 +8,13 @@
   <script>
       onkeydown = (e) => {
           
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'hello-world';
+          if (e.key === "ArrowLeft") {
+              window.location.href = '/hello-world';
           }
           
           
-          if (e.key == "ArrowRight") {
-              window.location.href = 'variables';
+          if (e.key === "ArrowRight") {
+              window.location.href = '/variables';
           }
           
       }
@@ -28,10 +28,14 @@
         <tr>
           <td class="docs">
             <p>Lua has eight basic types: nil, boolean,
-number, string, userdata, function, thread, and table</p>
+number, string, userdata, function, thread, and table.
+Here are a few examples.</p>
 
           </td>
           <td class="code empty leading">
+            
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           
           </td>
@@ -39,10 +43,15 @@ number, string, userdata, function, thread, and table</p>
         
         <tr>
           <td class="docs">
-            <p>Strings, which can be added together with <code>..</code></p>
+            <ul>
+<li>Strings, which can be concatenated together with <code>..</code></li>
+</ul>
 
           </td>
           <td class="code leading">
+            
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
 <span class="n">print</span><span class="p">(</span><span class="s2">&#34;lua&#34;</span> <span class="o">..</span> <span class="s2">&#34;lang&#34;</span><span class="p">)</span></pre>
@@ -51,10 +60,15 @@ number, string, userdata, function, thread, and table</p>
         
         <tr>
           <td class="docs">
-            <p>Numbers and math</p>
+            <ul>
+<li>Numbers and math</li>
+</ul>
 
           </td>
           <td class="code leading">
+            
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
 <span class="n">print</span><span class="p">(</span><span class="s2">&#34;1+1 =&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -64,10 +78,15 @@ number, string, userdata, function, thread, and table</p>
         
         <tr>
           <td class="docs">
-            <p>Booleans, with boolean operators</p>
+            <ul>
+<li>Booleans, with boolean operators</li>
+</ul>
 
           </td>
           <td class="code leading">
+            
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
 <span class="n">print</span><span class="p">(</span><span class="kc">true</span> <span class="ow">and</span> <span class="kc">false</span><span class="p">)</span>
@@ -78,10 +97,15 @@ number, string, userdata, function, thread, and table</p>
         
         <tr>
           <td class="docs">
-            <p>Parenthesis can be used to control order of operations</p>
+            <ul>
+<li>Parenthesis can be used to control order of operations</li>
+</ul>
 
           </td>
           <td class="code leading">
+            
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
 <span class="n">print</span><span class="p">(</span><span class="kc">true</span> <span class="ow">or</span> <span class="p">(</span><span class="kc">true</span> <span class="ow">and</span> <span class="kc">false</span><span class="p">))</span></pre>
@@ -94,6 +118,7 @@ number, string, userdata, function, thread, and table</p>
 
           </td>
           <td class="code">
+            
             
           <pre class="chroma">
 <span class="kr">if</span> <span class="kc">nil</span> <span class="kr">then</span>
@@ -114,7 +139,16 @@ number, string, userdata, function, thread, and table</p>
           </td>
           <td class="code">
             
-          <pre class="chroma"><span class="gp">$</span> lua values.lua</pre>
+            
+          <pre class="chroma"><span class="gp">$</span> lua values.lua
+<span class="go">lualang
+</span><span class="go">1+1 =	2
+</span><span class="go">7.0/3.0 =	2.3333333333333
+</span><span class="go">false
+</span><span class="go">true
+</span><span class="go">false
+</span><span class="go">true
+</span><span class="go">false</span></pre>
           </td>
         </tr>
         
@@ -133,7 +167,7 @@ number, string, userdata, function, thread, and table</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('print(\"lua\" .. \"lang\")\u000A');codeLines.push('print(\"1+1 \u003D\", 1+1)\u000Aprint(\"7.0/3.0 \u003D\", 7.0/3.0)\u000A');codeLines.push('print(true and false)\u000Aprint(true or false)\u000Aprint(not true)\u000A');codeLines.push('print(true or (true and false))\u000A');codeLines.push('if nil then\u000A    print(\'true\')\u000Aelse\u000A    print(\'false\')\u000Aend\u000A');codeLines.push('');
     </script>
     <script src="/site.js" async></script>
   </body>

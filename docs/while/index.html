@@ -8,13 +8,13 @@
   <script>
       onkeydown = (e) => {
           
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'for';
+          if (e.key === "ArrowLeft") {
+              window.location.href = '/for';
           }
           
           
-          if (e.key == "ArrowRight") {
-              window.location.href = 'if-else';
+          if (e.key === "ArrowRight") {
+              window.location.href = '/if-else';
           }
           
       }
@@ -32,6 +32,9 @@
           </td>
           <td class="code leading">
             
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
           <pre class="chroma">
 <span class="kd">local</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="kr">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="kr">do</span>
@@ -48,6 +51,7 @@
 
           </td>
           <td class="code">
+            
             
           <pre class="chroma">
 <span class="kr">while</span> <span class="kc">true</span> <span class="kr">do</span>
@@ -67,7 +71,13 @@
           </td>
           <td class="code">
             
-          <pre class="chroma"><span class="gp">$</span> lua while.lua</pre>
+            
+          <pre class="chroma"><span class="gp">$</span> lua while.lua
+<span class="go">1
+</span><span class="go">2
+</span><span class="go">3
+</span><span class="go">4
+</span><span class="go">This loop will run forever.</span></pre>
           </td>
         </tr>
         
@@ -86,7 +96,7 @@
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('local i \u003D 1\u000Awhile i \u003C 5 do\u000A    print(i)\u000A    i \u003D i + 1\u000Aend\u000A');codeLines.push('while true do\u000A   print(\"This loop will run forever.\")\u000A   break\u000Aend\u000A');codeLines.push('');
     </script>
     <script src="/site.js" async></script>
   </body>

@@ -8,8 +8,8 @@
   <script>
       onkeydown = (e) => {
           
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'multiple-results';
+          if (e.key === "ArrowLeft") {
+              window.location.href = '/multiple-results';
           }
           
           
@@ -30,6 +30,9 @@ For example, <code>print</code> is a common variadic function.</p>
           </td>
           <td class="code empty leading">
             
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
           
           </td>
         </tr>
@@ -41,6 +44,9 @@ of <code>numbers</code>s as arguments.</p>
 
           </td>
           <td class="code leading">
+            
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
 <span class="kd">local</span> <span class="kr">function</span> <span class="nf">sum</span><span class="p">(...)</span>
@@ -62,6 +68,9 @@ with individual arguments.</p>
           </td>
           <td class="code leading">
             
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
           <pre class="chroma">
 <span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span></pre>
@@ -76,6 +85,7 @@ apply them to a variadic function using
 
           </td>
           <td class="code">
+            
             
           <pre class="chroma">
 <span class="n">nums</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
@@ -93,7 +103,16 @@ apply them to a variadic function using
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><span class="gp">$</span> lua variadic-functions.lua</pre>
+            
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
+          <pre class="chroma"><span class="gp">$</span> lua variadic-functions.lua
+<span class="go">items: 	1	2
+</span><span class="go">total: 	3
+</span><span class="go">items: 	1	2	3
+</span><span class="go">total: 	6
+</span><span class="go">items: 	1	2	3	4
+</span><span class="go">total: 	10</span></pre>
           </td>
         </tr>
         
@@ -104,6 +123,7 @@ to form closures, which we&rsquo;ll look at next.</p>
 
           </td>
           <td class="code empty">
+            
             
           
           </td>
@@ -120,7 +140,7 @@ to form closures, which we&rsquo;ll look at next.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('local function sum(...)\u000A    print(\"items: \", ...)\u000A    total \u003D 0\u000A    for idx, num in ipairs({...}) do\u000A        total \u003D total + num\u000A    end\u000A    print(\"total: \",total)\u000Aend\u000A');codeLines.push('sum(1, 2)\u000Asum(1, 2, 3)\u000A');codeLines.push('nums \u003D {1, 2, 3, 4}\u000Asum(table.unpack(nums))\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="/site.js" async></script>
   </body>
