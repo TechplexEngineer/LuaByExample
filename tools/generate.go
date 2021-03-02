@@ -353,11 +353,12 @@ func main() {
 	}
 	ensureDir(siteDir)
 
-	copyFile("templates/site.css", siteDir+"/site.css")
-	copyFile("templates/site.js", siteDir+"/site.js")
-	copyFile("templates/favicon.ico", siteDir+"/favicon.ico")
-	copyFile("templates/404.html", siteDir+"/404.html")
-	copyFile("templates/play.png", siteDir+"/play.png")
+	copyFile("templates/site.css",      siteDir+"/site.css")
+	copyFile("templates/monokai.css",   siteDir+"/monokai.css")
+	copyFile("templates/site.js",       siteDir+"/site.js")
+	copyFile("templates/favicon.ico",   siteDir+"/favicon.ico")
+	copyFile("templates/404.html",      siteDir+"/404.html")
+	copyFile("templates/play.png",      siteDir+"/play.png")
 	copyFile("templates/clipboard.png", siteDir+"/clipboard.png")
 	examples := parseExamples()
 	renderIndex(examples)
