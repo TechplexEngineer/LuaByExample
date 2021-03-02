@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Lua by Example: For</title>
     <link rel=stylesheet href="/site.css">
+    <link rel=stylesheet href="/monokai.css">
   </head>
   <script>
       onkeydown = (e) => {
@@ -23,18 +24,17 @@
     <div class="example" id="for">
       <h2><a href="/">Lua by Example</a>: For</h2>
       
+      
       <table>
         
         <tr>
           <td class="docs">
             <p><code>for</code> is one of Lua&rsquo;s looping constructs. Here are
-some basic types of <code>for</code> loops.</p>
+some types of <code>for</code> loops.</p>
 
           </td>
           <td class="code empty leading">
             
-            
-              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           
           </td>
@@ -50,6 +50,7 @@ the third expression is optional, when omitted 1 is used as the step.</p>
           <td class="code leading">
             
             
+              
               <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
@@ -68,8 +69,6 @@ despite the lack of the local keyword.</p>
           <td class="code leading">
             
             
-              <img title="Copy code" src="/clipboard.png" class="copy" />
-            
           <pre class="chroma">
 <span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1">-- will print nil</span></pre>
           </td>
@@ -82,8 +81,6 @@ despite the lack of the local keyword.</p>
           </td>
           <td class="code leading">
             
-            
-              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
 <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span> <span class="kr">do</span>
@@ -103,8 +100,6 @@ print all values of array <code>arr</code></p>
           </td>
           <td class="code leading">
             
-            
-              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
 <span class="n">arr</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
@@ -142,8 +137,6 @@ prints odd numbers in [|1,10|]</p>
           </td>
           <td class="code leading">
             
-            
-              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma"><span class="gp">$</span> lua for.lua
 <span class="go">first: 	1

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Lua by Example: Functions</title>
     <link rel=stylesheet href="/site.css">
+    <link rel=stylesheet href="/monokai.css">
   </head>
   <script>
       onkeydown = (e) => {
@@ -23,6 +24,7 @@
     <div class="example" id="functions">
       <h2><a href="/">Lua by Example</a>: Functions</h2>
       
+      
       <table>
         
         <tr>
@@ -33,8 +35,6 @@ functions with a few different examples.</p>
           </td>
           <td class="code empty leading">
             
-            
-              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           
           </td>
@@ -49,6 +49,7 @@ their sum.</p>
           <td class="code leading">
             
             
+              
               <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
@@ -66,8 +67,6 @@ expression.</p>
           <td class="code leading">
             
             
-              <img title="Copy code" src="/clipboard.png" class="copy" />
-            
           <pre class="chroma">
     <span class="kr">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 <span class="kr">end</span></pre>
@@ -81,8 +80,6 @@ expression.</p>
           </td>
           <td class="code leading">
             
-            
-              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
 <span class="n">print</span><span class="p">(</span><span class="s2">&#34;1+2 =&#34;</span> <span class="o">..</span> <span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span></pre>
@@ -101,8 +98,6 @@ such as packages and object-oriented programming.</p>
           <td class="code leading">
             
             
-              <img title="Copy code" src="/clipboard.png" class="copy" />
-            
           <pre class="chroma">
 <span class="kd">local</span> <span class="n">subtract</span> <span class="o">=</span> <span class="kr">function</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="kr">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
@@ -117,8 +112,6 @@ such as packages and object-oriented programming.</p>
           </td>
           <td class="code leading">
             
-            
-              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
 <span class="n">print</span><span class="p">(</span><span class="s2">&#34;2-1 =&#34;</span> <span class="o">..</span> <span class="n">subtract</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span></pre>
@@ -149,8 +142,6 @@ larger Lua programs where where lua files are required by other lua files.</p>
           </td>
           <td class="code leading">
             
-            
-              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma"><span class="gp">$</span> lua functions.lua
 <span class="go">1+2 =3

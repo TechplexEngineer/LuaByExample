@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Lua by Example: Variadic Functions</title>
     <link rel=stylesheet href="/site.css">
+    <link rel=stylesheet href="/monokai.css">
   </head>
   <script>
       onkeydown = (e) => {
@@ -19,6 +20,7 @@
     <div class="example" id="variadic-functions">
       <h2><a href="/">Lua by Example</a>: Variadic Functions</h2>
       
+      
       <table>
         
         <tr>
@@ -31,8 +33,6 @@ For example, <code>print</code> is a common variadic function.</p>
           <td class="code empty leading">
             
             
-              <img title="Copy code" src="/clipboard.png" class="copy" />
-            
           
           </td>
         </tr>
@@ -40,12 +40,13 @@ For example, <code>print</code> is a common variadic function.</p>
         <tr>
           <td class="docs">
             <p>Here&rsquo;s a function that will take an arbitrary quantity
-of <code>numbers</code>s as arguments.</p>
+of <code>number</code>s as arguments.</p>
 
           </td>
           <td class="code leading">
             
             
+              
               <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
@@ -68,8 +69,6 @@ with individual arguments.</p>
           </td>
           <td class="code leading">
             
-            
-              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma">
 <span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -103,8 +102,6 @@ apply them to a variadic function using
           </td>
           <td class="code leading">
             
-            
-              <img title="Copy code" src="/clipboard.png" class="copy" />
             
           <pre class="chroma"><span class="gp">$</span> lua variadic-functions.lua
 <span class="go">items: 	1	2
