@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Lua by Example: {{.Name}}</title>
     <link rel=stylesheet href="/site.css">
+    <link rel=stylesheet href="/monokai.css">
   </head>
   <script>
       onkeydown = (e) => {
@@ -22,6 +23,7 @@
   <body>
     <div class="example" id="{{.ID}}">
       <h2><a href="/">Lua by Example</a>: {{.Name}}</h2>
+      {{$needFirstRender := true}}
       {{range .Segs}}
       <table>
         {{range .}}
@@ -35,7 +37,8 @@
                 <img title="Run code" src="play.png" class="run" />
               </a>
             {{end}}
-            {{if .CodeLeading}}
+            {{if (and .CodeLeading (and $needFirstRender (not .CodeEmpty) ) ) }}
+              {{$needFirstRender = false}}
               <img title="Copy code" src="/clipboard.png" class="copy" />
             {{end}}
           {{.CodeRendered}}
