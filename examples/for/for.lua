@@ -1,5 +1,5 @@
 -- `for` is one of Lua's looping constructs. Here are
--- some basic types of `for` loops.
+-- some types of `for` loops.
 
 
 -- A three expression loop is called a _numeric for_ loop

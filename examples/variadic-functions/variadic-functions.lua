@@ -4,7 +4,7 @@
 
 
 -- Here's a function that will take an arbitrary quantity
--- of `numbers`s as arguments.
+-- of `number`s as arguments.
 local function sum(...)
 	print("items: ", ...)
 	total = 0

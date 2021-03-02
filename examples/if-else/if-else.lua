@@ -1,4 +1,4 @@
--- Branching with `if` and `else` in lua is straight-forward.
+-- Branching with `if` and `else` in Lua:
 
 -- Here's a basic example.
 -- Note that you don't need parentheses around conditions
