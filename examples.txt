@@ -4,81 +4,55 @@ Values
 # nil, boolean, number, string, userdata, function, thread, and table
 
 Variables
-## Constants
 For
 For alternate layout
 While
 If/Else
 
-## Switch
 # Arrays
-## Slices
 # Maps
-## Range
 Functions
 Multiple Results
 Variadic Functions
-
-###END
-
-Closures
-Recursion
-## Pointers
-# Structs
 Methods
-## Interfaces
-Errors
-# Goroutines
-## Channels
-## Channel Buffering
-## Channel Synchronization
-## Channel Directions
-## Select
-Timeouts
-## Non-Blocking Channel Operations
-## Closing Channels
-## Range over Channels
-Timers
-## Tickers
-## Worker Pools
-## WaitGroups
-## Rate Limiting
-## Atomic Counters
-## Mutexes
-## Stateful Goroutines
-Sorting
-Sorting by Functions
-## Panic
-## Defer
-## Collection Functions
-String Functions
-String Formatting
+
+
+# Closures
+# Recursion
+# Structs
+
+
+# Errors  -- @todo
+
+
+# Timeouts -- @todo
+# Timers -- @todo
+# Sorting -- @todo
+# Sorting by Functions -- @todo
+# String Functions -- @todo
+# String Formatting -- @todo
 # Regular Expressions #paterns
 # JSON
 # XML
-Time
-Epoch
-Time Formatting / Parsing
-Random Numbers
-Number Parsing
+# Time -- @todo
+# Epoch -- @todo
+# Time Formatting / Parsing
+# Random Numbers -- @todo
+# Number Parsing -- @todo
 # URL Parsing
 # SHA1 Hashes
 # Base64 Encoding
-Reading Files
-Writing Files
-Line Filters
-File Paths
-Directories
-Temporary Files and Directories
-## Testing
-# Command-Line Arguments
+# Reading Files -- @todo
+# Writing Files -- @todo
+# Line Filters -- @todo
+# File Paths -- @todo
+# Directories -- @todo
+# Temporary Files and Directories -- @todo
+Command-Line Arguments
 # Command-Line Flags
 # Command-Line Subcommands
 Environment Variables
-## HTTP Clients
-## HTTP Servers
-## Context
-Spawning Processes
+# Spawning Processes
 Exec'ing Processes
-Signals
+# Signals
 Exit

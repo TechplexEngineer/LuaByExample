@@ -47,7 +47,7 @@ func copyFile(src, dst string) {
 	check(err)
 }
 
-func pipe(bin string, arg []string, src string) []byte {
+func pipe(bin string, arg []string, stdin string) []byte {
 	fmt.Printf("cmd: %s - %v\n", bin, arg)
 	cmd := exec.Command(bin, arg...)
 	in, err := cmd.StdinPipe()
@@ -58,7 +58,7 @@ func pipe(bin string, arg []string, src string) []byte {
 	check(err)
 	err = cmd.Start()
 	check(err)
-	_, err = in.Write([]byte(src))
+	_, err = in.Write([]byte(stdin))
 	check(err)
 	err = in.Close()
 	check(err)
@@ -70,8 +70,10 @@ func pipe(bin string, arg []string, src string) []byte {
 	stderr.Close()
 	err = cmd.Wait()
 	if err != nil {
-		fmt.Printf("ERROR: %s - %s\n", stderrB, err)
-		check(err)
+		if exitError, ok := err.(*exec.ExitError); ok && exitError.ExitCode() != 3 {
+			fmt.Printf("ERROR: %s - %s\n", stderrB, err)
+			check(err)
+		}
 	}
 	//check(err)
 	return fileBytes
@@ -118,7 +120,7 @@ func debug(msg string) {
 
 var docsPat = regexp.MustCompile(`^\s*(//|#|--)\s`) //"^\\s*(\\/\\/|#)\\s"
 var dashPat = regexp.MustCompile(`-+"`)
-var promptPat = regexp.MustCompile(`^\$\slua\s`)
+var promptPat = regexp.MustCompile(`^\$\s`)
 
 // Seg is a segment of an example
 type Seg struct {
@@ -166,10 +168,10 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
 			pwd, _ := os.Getwd()
 			fmt.Printf("exe: |%s| pwd: %s\n", l, pwd)
 
-			res := pipe("lua", strings.Split(l, " "), "")
+			res := pipe("bash", []string{"-c", l}, "")
 			fmt.Printf("RESULT: %s", res)
 			for _, out := range strings.Split(string(res), "\n") {
-				lines = append(lines, out)
+				lines = append(lines, strings.Replace(out, "\t", "    ", -1))
 			}
 		}
 	}

@@ -6,9 +6,6 @@ verbose() {
 	! test -z "$VERBOSE"
 }
 
-verbose && echo "Running tests..."
-tools/test
-
 verbose && echo "Formatting code..."
 tools/format
 

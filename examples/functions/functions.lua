@@ -2,8 +2,8 @@
 -- functions with a few different examples.
 
 
--- Here's a function that takes two `number`s and returns
--- their sum.
+-- Here's a local function that takes two `number`s and returns
+-- their sum. Note: functions are global by default.
 local function plus (a, b)
 	-- lua requires explicit returns, i.e. it won't
 	-- automatically return the value of the last

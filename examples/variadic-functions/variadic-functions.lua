@@ -23,7 +23,7 @@ sum(1, 2, 3)
 
 -- If you already have multiple args in a slice,
 -- apply them to a variadic function using
--- `func(slice...)` like this.
+-- `table.unpack()`.
 nums = {1, 2, 3, 4}
 sum(table.unpack(nums))
 

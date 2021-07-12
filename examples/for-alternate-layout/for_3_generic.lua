@@ -2,7 +2,7 @@
 -- print all values of array `arr`
 arr = {'a', 'b', 'c', 'd'}
 for i,v in ipairs(arr) do
-    print('arr: i,v', i,v)
+    print(i,v)
 end
 
 
