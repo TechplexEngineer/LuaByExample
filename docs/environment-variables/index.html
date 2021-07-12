@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lua by Example: Environment Variables</title>
+    <link rel=stylesheet href="/site.css">
+    <link rel=stylesheet href="/monokai.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key === "ArrowLeft") {
+              window.location.href = '/command-line-arguments';
+          }
+          
+          
+          if (e.key === "ArrowRight") {
+              window.location.href = '/execing-processes';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="environment-variables">
+      <h2><a href="/">Lua by Example</a>: Environment Variables</h2>
+      
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p><a href="http://en.wikipedia.org/wiki/Environment_variable">Environment variables</a>
+are a universal mechanism for <a href="http://www.12factor.net/config">conveying configuration
+information to Unix programs</a>.</p>
+
+          </td>
+          <td class="code empty leading">
+            
+            
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>To get a value for a key, use <code>os.getenv</code>. This will return
+nil if the key isn&rsquo;t present in the environment.</p>
+
+          </td>
+          <td class="code">
+            
+            
+          <pre class="chroma">
+<span class="n">print</span><span class="p">(</span><span class="s2">&#34;FOO:&#34;</span><span class="p">,</span> <span class="n">os.getenv</span><span class="p">(</span><span class="s2">&#34;FOO&#34;</span><span class="p">))</span>
+<span class="n">print</span><span class="p">(</span><span class="s2">&#34;BAR:&#34;</span><span class="p">,</span> <span class="n">os.getenv</span><span class="p">(</span><span class="s2">&#34;BAR&#34;</span><span class="p">))</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Running the program shows that we pick up the value
+for <code>FOO</code> that we set in the program, but that
+<code>BAR</code> is empty.</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+              
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
+          <pre class="chroma">
+<span class="gp">$</span> lua environment-variables.lua
+<span class="go">FOO:    nil
+</span><span class="go">BAR:    nil</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>If we set <code>BAR</code> in the environment first, the running
+program picks that value up.</p>
+
+          </td>
+          <td class="code">
+            
+            
+          <pre class="chroma">
+<span class="gp">$</span> BAR=2 lua environment-variables.lua
+<span class="go">FOO:    nil
+</span><span class="go">BAR:    2</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="/execing-processes">Exec'ing Processes</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://techplexlabs.com">Blake Bourque</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample/blob/master/examples/environment-variables">source</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample#license">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('');codeLines.push('print(\"FOO:\", os.getenv(\"FOO\"))\u000Aprint(\"BAR:\", os.getenv(\"BAR\"))\u000A');codeLines.push('');codeLines.push('');
+    </script>
+    <script src="/site.js" async></script>
+  </body>
+</html>

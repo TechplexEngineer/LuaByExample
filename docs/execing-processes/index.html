@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lua by Example: Exec'ing Processes</title>
+    <link rel=stylesheet href="/site.css">
+    <link rel=stylesheet href="/monokai.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key === "ArrowLeft") {
+              window.location.href = '/environment-variables';
+          }
+          
+          
+          if (e.key === "ArrowRight") {
+              window.location.href = '/exit';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="execing-processes">
+      <h2><a href="/">Lua by Example</a>: Exec'ing Processes</h2>
+      
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>To interact with other programs on the system and perform actions
+that are not directly supported by lua, one can delecate the action
+to the operating system shell with <code>os.execute()</code> or <code>io.popen()</code></p>
+
+          </td>
+          <td class="code empty leading">
+            
+            
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p><code>os.execute()</code> executes a command using the operating system shell,
+and returns if the command was successful or not.
+If you need the command&rsquo;s output see io.popen</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+              
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
+          <pre class="chroma">
+<span class="kd">local</span> <span class="n">success</span> <span class="o">=</span> <span class="n">os.execute</span><span class="p">(</span><span class="s1">&#39;mkdir -p /tmp/example&#39;</span><span class="p">)</span>
+<span class="kr">if</span> <span class="n">success</span> <span class="kr">then</span>
+    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;successfully created directory&#39;</span><span class="p">)</span>
+<span class="kr">end</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p><code>io.popen()</code> Runs a command, and returns a handle which can be used to read the command&rsquo;s output.
+Success or failure of the command is reported as the first return value when
+closing the handle.</p>
+
+          </td>
+          <td class="code">
+            
+            
+          <pre class="chroma">
+<span class="kd">local</span> <span class="n">handle</span> <span class="o">=</span> <span class="n">io.popen</span><span class="p">(</span><span class="s2">&#34;date --date=&#39;@2147483647&#39;&#34;</span><span class="p">)</span>
+<span class="kr">if</span> <span class="n">handle</span> <span class="o">==</span> <span class="kc">nil</span> <span class="kr">then</span>
+    <span class="kr">return</span>
+<span class="kr">end</span>
+<span class="kd">local</span> <span class="n">stdout</span> <span class="o">=</span> <span class="n">handle</span><span class="p">:</span><span class="n">read</span><span class="p">()</span>
+<span class="n">success</span> <span class="o">=</span> <span class="n">handle</span><span class="p">:</span><span class="n">close</span><span class="p">()</span>
+<span class="kr">if</span> <span class="n">success</span> <span class="kr">then</span>
+    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;output is:&#39;</span><span class="p">,</span> <span class="n">stdout</span><span class="p">)</span>
+<span class="kr">else</span>
+    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;error when executing command&#39;</span><span class="p">)</span>
+<span class="kr">end</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+            
+          <pre class="chroma"><span class="gp">$</span> lua execing-processes.lua
+<span class="go">successfully created directory
+</span><span class="go">output is:    Tue Jan 19 03:14:07 UTC 2038</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="/exit">Exit</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://techplexlabs.com">Blake Bourque</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample/blob/master/examples/execing-processes">source</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample#license">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('');codeLines.push('local success \u003D os.execute(\'mkdir -p /tmp/example\')\u000Aif success then\u000A    print(\'successfully created directory\')\u000Aend\u000A');codeLines.push('local handle \u003D io.popen(\"date --date\u003D\'@2147483647\'\")\u000Aif handle \u003D\u003D nil then\u000A    return\u000Aend\u000Alocal stdout \u003D handle:read()\u000Asuccess \u003D handle:close()\u000Aif success then\u000A    print(\'output is:\', stdout)\u000Aelse\u000A    print(\'error when executing command\')\u000Aend\u000A');codeLines.push('');
+    </script>
+    <script src="/site.js" async></script>
+  </body>
+</html>

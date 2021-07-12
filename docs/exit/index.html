@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lua by Example: Exit</title>
+    <link rel=stylesheet href="/site.css">
+    <link rel=stylesheet href="/monokai.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key === "ArrowLeft") {
+              window.location.href = '/execing-processes';
+          }
+          
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="exit">
+      <h2><a href="/">Lua by Example</a>: Exit</h2>
+      
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Use <code>os.exit</code> to immediately exit with a given
+status.</p>
+
+          </td>
+          <td class="code empty leading">
+            
+            
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Exit with status 3.</p>
+
+          </td>
+          <td class="code">
+            
+            
+          <pre class="chroma">
+<span class="n">os.exit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>If you run <code>exit.lua</code> using <code>lua</code>, the exit code will be returned to the parent (the shell in this case).
+We can then print the exit code.</p>
+
+          </td>
+          <td class="code">
+            
+            
+          <pre class="chroma">
+<span class="gp">$</span> lua exit.lua; echo $?
+<span class="go">3</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="footer">
+        by <a href="https://techplexlabs.com">Blake Bourque</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample/blob/master/examples/exit">source</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample#license">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('');codeLines.push('os.exit(3)\u000A');codeLines.push('');
+    </script>
+    <script src="/site.js" async></script>
+  </body>
+</html>

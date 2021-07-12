@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lua by Example: Command-Line Arguments</title>
+    <link rel=stylesheet href="/site.css">
+    <link rel=stylesheet href="/monokai.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key === "ArrowLeft") {
+              window.location.href = '/methods';
+          }
+          
+          
+          if (e.key === "ArrowRight") {
+              window.location.href = '/environment-variables';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="command-line-arguments">
+      <h2><a href="/">Lua by Example</a>: Command-Line Arguments</h2>
+      
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p><a href="http://en.wikipedia.org/wiki/Command-line_interface#Arguments"><em>Command-line arguments</em></a>
+are a common way to parameterize execution of programs.
+For example, <code>$ mkdir /tmp/fred</code> on the command line invokes the <code>mkdir</code> program with a single argument <code>/tmp/fred</code></p>
+
+          </td>
+          <td class="code empty leading">
+            
+            
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Function to make a string representation of a table
+<a href="https://stackoverflow.com/a/27028488/429544">https://stackoverflow.com/a/27028488/429544</a></p>
+
+          </td>
+          <td class="code leading">
+            
+            
+              
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
+          <pre class="chroma">
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">dump</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+   <span class="kr">if</span> <span class="n">type</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;table&#39;</span> <span class="kr">then</span>
+      <span class="kd">local</span> <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;{ &#39;</span>
+      <span class="kr">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="kr">in</span> <span class="n">pairs</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="kr">do</span>
+         <span class="kr">if</span> <span class="n">type</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">~=</span> <span class="s1">&#39;number&#39;</span> <span class="kr">then</span> <span class="n">k</span> <span class="o">=</span> <span class="s1">&#39;&#34;&#39;</span><span class="o">..</span><span class="n">k</span><span class="o">..</span><span class="s1">&#39;&#34;&#39;</span> <span class="kr">end</span>
+         <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">..</span> <span class="s1">&#39;[&#39;</span><span class="o">..</span><span class="n">k</span><span class="o">..</span><span class="s1">&#39;] = &#39;</span> <span class="o">..</span> <span class="n">dump</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">..</span> <span class="s1">&#39;,&#39;</span>
+      <span class="kr">end</span>
+      <span class="kr">return</span> <span class="n">s</span> <span class="o">..</span> <span class="s1">&#39;} &#39;</span>
+   <span class="kr">else</span>
+      <span class="kr">return</span> <span class="n">tostring</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+   <span class="kr">end</span>
+<span class="kr">end</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="kd">local</span> <span class="n">args</span> <span class="o">=</span> <span class="p">{...}</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+            
+          <pre class="chroma"><span class="n">print</span><span class="p">(</span><span class="n">dump</span><span class="p">(</span><span class="n">args</span><span class="p">))</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+            
+          <pre class="chroma"><span class="gp">$</span> lua command-line-arguments.lua a b c d
+<span class="go">{ [1] = a,[2] = b,[3] = c,[4] = d,} </span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="/environment-variables">Environment Variables</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://techplexlabs.com">Blake Bourque</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample/blob/master/examples/command-line-arguments">source</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample#license">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('');codeLines.push('local function dump(o)\u000A   if type(o) \u003D\u003D \'table\' then\u000A      local s \u003D \'{ \'\u000A      for k,v in pairs(o) do\u000A         if type(k) ~\u003D \'number\' then k \u003D \'\"\'..k..\'\"\' end\u000A         s \u003D s .. \'[\'..k..\'] \u003D \' .. dump(v) .. \',\'\u000A      end\u000A      return s .. \'} \'\u000A   else\u000A      return tostring(o)\u000A   end\u000Aend\u000A');codeLines.push('local args \u003D {...}\u000A');codeLines.push('print(dump(args))\u000A');codeLines.push('');
+    </script>
+    <script src="/site.js" async></script>
+  </body>
+</html>

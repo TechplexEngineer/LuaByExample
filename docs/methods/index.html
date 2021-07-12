@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lua by Example: Methods</title>
+    <link rel=stylesheet href="/site.css">
+    <link rel=stylesheet href="/monokai.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key === "ArrowLeft") {
+              window.location.href = '/variadic-functions';
+          }
+          
+          
+          if (e.key === "ArrowRight") {
+              window.location.href = '/command-line-arguments';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="methods">
+      <h2><a href="/">Lua by Example</a>: Methods</h2>
+      
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>lua supports <em>methods</em> defined on tables.</p>
+
+          </td>
+          <td class="code empty leading">
+            
+            
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>items declared in this table are shared between all instances
+but can be overridden</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+              
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
+          <pre class="chroma">
+<span class="kd">local</span> <span class="n">My_Psuedo_Class</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">shared</span> <span class="o">=</span> <span class="s2">&#34;string is shared&#34;</span>
+<span class="p">}</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="kr">function</span> <span class="nc">My_Psuedo_Class</span><span class="p">:</span><span class="nf">new</span><span class="p">()</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>items declared in this table are unique between instances</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">
+    <span class="kd">local</span> <span class="n">instance</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">unique</span> <span class="o">=</span> <span class="s2">&#34;string is unique&#34;</span>
+    <span class="p">}</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">    <span class="n">setmetatable</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="p">{</span> <span class="n">__index</span> <span class="o">=</span> <span class="n">My_Psuedo_Class</span> <span class="p">})</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">    <span class="kr">return</span> <span class="n">instance</span>
+<span class="kr">end</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>declaration of a method that changes internal state</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">
+<span class="kr">function</span> <span class="nc">My_Psuedo_Class</span><span class="p">:</span><span class="nf">method</span><span class="p">(</span><span class="n">new_val</span><span class="p">)</span>
+    <span class="n">self.shared</span> <span class="o">=</span> <span class="n">new_val</span>
+    <span class="n">self.unique</span> <span class="o">=</span> <span class="n">new_val</span>
+<span class="kr">end</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>another method that prints internal state</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">
+<span class="kr">function</span> <span class="nc">My_Psuedo_Class</span><span class="p">:</span><span class="nf">print</span><span class="p">()</span>
+    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;shared: &#39;</span><span class="p">,</span> <span class="n">self.shared</span><span class="p">,</span> <span class="s1">&#39; unique: &#39;</span><span class="o">..</span><span class="n">self.unique</span><span class="p">)</span>
+<span class="kr">end</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="kd">local</span> <span class="n">instance_a</span> <span class="o">=</span> <span class="n">My_Psuedo_Class</span><span class="p">:</span><span class="n">new</span><span class="p">()</span>
+<span class="kd">local</span> <span class="n">instance_b</span> <span class="o">=</span> <span class="n">My_Psuedo_Class</span><span class="p">:</span><span class="n">new</span><span class="p">()</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="n">instance_a</span><span class="p">:</span><span class="n">print</span><span class="p">()</span>
+<span class="n">instance_b</span><span class="p">:</span><span class="n">print</span><span class="p">()</span>
+<span class="n">print</span><span class="p">()</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>we can change the shared state</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">
+<span class="n">My_Psuedo_Class.shared</span> <span class="o">=</span> <span class="s2">&#34;new shared state&#34;</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="n">instance_a</span><span class="p">:</span><span class="n">print</span><span class="p">()</span>
+<span class="n">instance_b</span><span class="p">:</span><span class="n">print</span><span class="p">()</span>
+<span class="n">print</span><span class="p">()</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="n">instance_a</span><span class="p">:</span><span class="n">method</span><span class="p">(</span><span class="s1">&#39;overwrite first&#39;</span><span class="p">)</span>
+<span class="n">instance_b</span><span class="p">:</span><span class="n">method</span><span class="p">(</span><span class="s1">&#39;overwrite second&#39;</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="n">instance_a</span><span class="p">:</span><span class="n">print</span><span class="p">()</span>
+<span class="n">instance_b</span><span class="p">:</span><span class="n">print</span><span class="p">()</span>
+<span class="n">print</span><span class="p">()</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>once the members have overridden the shared state
+changes will only affect new instances</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">
+<span class="n">My_Psuedo_Class.shared</span> <span class="o">=</span> <span class="s2">&#34;only in inst. c&#34;</span>
+<span class="kd">local</span> <span class="n">instance_c</span> <span class="o">=</span> <span class="n">My_Psuedo_Class</span><span class="p">:</span><span class="n">new</span><span class="p">()</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+            
+          <pre class="chroma"><span class="n">instance_a</span><span class="p">:</span><span class="n">print</span><span class="p">()</span>
+<span class="n">instance_b</span><span class="p">:</span><span class="n">print</span><span class="p">()</span>
+<span class="n">instance_c</span><span class="p">:</span><span class="n">print</span><span class="p">()</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="gp">$</span> lua methods.lua
+<span class="go">shared:     string is shared     unique: string is unique
+</span><span class="go">shared:     string is shared     unique: string is unique</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="go">shared:     new shared state     unique: string is unique
+</span><span class="go">shared:     new shared state     unique: string is unique</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="go">shared:     overwrite first     unique: overwrite first
+</span><span class="go">shared:     overwrite second     unique: overwrite second</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+            
+          <pre class="chroma"><span class="go">shared:     overwrite first     unique: overwrite first
+</span><span class="go">shared:     overwrite second     unique: overwrite second
+</span><span class="go">shared:     only in inst. c     unique: string is unique</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="/command-line-arguments">Command-Line Arguments</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://techplexlabs.com">Blake Bourque</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample/blob/master/examples/methods">source</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample#license">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('');codeLines.push('local My_Psuedo_Class \u003D {\u000A    shared \u003D \"string is shared\"\u000A}\u000A');codeLines.push('function My_Psuedo_Class:new()\u000A');codeLines.push('    local instance \u003D {\u000A        unique \u003D \"string is unique\"\u000A    }\u000A');codeLines.push('    setmetatable(instance, { __index \u003D My_Psuedo_Class })\u000A');codeLines.push('    return instance\u000Aend\u000A');codeLines.push('function My_Psuedo_Class:method(new_val)\u000A    self.shared \u003D new_val\u000A    self.unique \u003D new_val\u000Aend\u000A');codeLines.push('function My_Psuedo_Class:print()\u000A    print(\'shared: \', self.shared, \' unique: \'..self.unique)\u000Aend\u000A');codeLines.push('local instance_a \u003D My_Psuedo_Class:new()\u000Alocal instance_b \u003D My_Psuedo_Class:new()\u000A');codeLines.push('instance_a:print()\u000Ainstance_b:print()\u000Aprint()\u000A');codeLines.push('My_Psuedo_Class.shared \u003D \"new shared state\"\u000A');codeLines.push('instance_a:print()\u000Ainstance_b:print()\u000Aprint()\u000A');codeLines.push('instance_a:method(\'overwrite first\')\u000Ainstance_b:method(\'overwrite second\')\u000A');codeLines.push('instance_a:print()\u000Ainstance_b:print()\u000Aprint()\u000A');codeLines.push('My_Psuedo_Class.shared \u003D \"only in inst. c\"\u000Alocal instance_c \u003D My_Psuedo_Class:new()\u000A');codeLines.push('instance_a:print()\u000Ainstance_b:print()\u000Ainstance_c:print()\u000A');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
+    </script>
+    <script src="/site.js" async></script>
+  </body>
+</html>

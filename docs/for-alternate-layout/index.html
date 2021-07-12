@@ -55,7 +55,7 @@ the third expression is optional, when omitted 1 is used as the step.</p>
             
           <pre class="chroma">
 <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span> <span class="kr">do</span>
-    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;first: &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <span class="kr">end</span></pre>
           </td>
         </tr>
@@ -86,12 +86,12 @@ despite the lack of the local keyword.</p>
             
             
           <pre class="chroma"><span class="gp">$</span> lua for_1_numeric.lua
-<span class="go">first: 	1
-</span><span class="go">first: 	2
-</span><span class="go">first: 	3
-</span><span class="go">first: 	4
-</span><span class="go">first: 	5
-</span><span class="go">loop variable scope is local:	nil</span></pre>
+<span class="go">1
+</span><span class="go">2
+</span><span class="go">3
+</span><span class="go">4
+</span><span class="go">5
+</span><span class="go">loop variable scope is local:    nil</span></pre>
           </td>
         </tr>
         
@@ -109,7 +109,7 @@ despite the lack of the local keyword.</p>
             
           <pre class="chroma">
 <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span> <span class="kr">do</span>
-    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;brk: &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="kr">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span> <span class="kr">then</span>
         <span class="kr">break</span>
     <span class="kr">end</span>
@@ -129,11 +129,11 @@ despite the lack of the local keyword.</p>
             
             
           <pre class="chroma"><span class="gp">$</span> lua for_2_break.lua
-<span class="go">brk: 	1
-</span><span class="go">brk: 	2
-</span><span class="go">brk: 	3
-</span><span class="go">brk: 	4
-</span><span class="go">brk: 	5</span></pre>
+<span class="go">1
+</span><span class="go">2
+</span><span class="go">3
+</span><span class="go">4
+</span><span class="go">5</span></pre>
           </td>
         </tr>
         
@@ -153,7 +153,7 @@ print all values of array <code>arr</code></p>
           <pre class="chroma">
 <span class="n">arr</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">}</span>
 <span class="kr">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="kr">in</span> <span class="n">ipairs</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="kr">do</span>
-    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;arr: i,v&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
 <span class="kr">end</span></pre>
           </td>
         </tr>
@@ -170,10 +170,10 @@ print all values of array <code>arr</code></p>
             
             
           <pre class="chroma"><span class="gp">$</span> lua for_3_generic.lua
-<span class="go">arr: i,v	1	a
-</span><span class="go">arr: i,v	2	b
-</span><span class="go">arr: i,v	3	c
-</span><span class="go">arr: i,v	4	d</span></pre>
+<span class="go">1    a
+</span><span class="go">2    b
+</span><span class="go">3    c
+</span><span class="go">4    d</span></pre>
           </td>
         </tr>
         
@@ -184,7 +184,7 @@ print all values of array <code>arr</code></p>
         <tr>
           <td class="docs">
             <p>Lua does not have a <code>continue</code> construct. A workaround is to use goto.
-prints odd numbers in [|1,10|]</p>
+This code prints odd numbers in the range [1,5] inclusive.</p>
 
           </td>
           <td class="code">
@@ -193,7 +193,7 @@ prints odd numbers in [|1,10|]</p>
           <pre class="chroma">
 <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span> <span class="kr">do</span>
   <span class="kr">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span> <span class="kr">goto</span> <span class="nl">continue</span> <span class="kr">end</span>
-  <span class="n">print</span><span class="p">(</span><span class="s1">&#39;odd: &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
   <span class="p">::</span><span class="nl">continue</span><span class="p">::</span>
 <span class="kr">end</span></pre>
           </td>
@@ -211,9 +211,9 @@ prints odd numbers in [|1,10|]</p>
             
             
           <pre class="chroma"><span class="gp">$</span> lua for_4_continue.lua
-<span class="go">odd: 	1
-</span><span class="go">odd: 	3
-</span><span class="go">odd: 	5</span></pre>
+<span class="go">1
+</span><span class="go">3
+</span><span class="go">5</span></pre>
           </td>
         </tr>
         
@@ -232,7 +232,7 @@ prints odd numbers in [|1,10|]</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('for i\u003D1, 5, 1 do\u000A    print(\'first: \', i)\u000Aend\u000A');codeLines.push('print(\'loop variable scope is local:\', i) -- i is nil\u000A');codeLines.push('');codeLines.push('for i\u003D1, 10, 1 do\u000A    print(\'brk: \', i)\u000A    if i \u003D\u003D 5 then\u000A        break\u000A    end\u000Aend\u000A');codeLines.push('');codeLines.push('arr \u003D {\'a\', \'b\', \'c\', \'d\'}\u000Afor i,v in ipairs(arr) do\u000A    print(\'arr: i,v\', i,v)\u000Aend\u000A');codeLines.push('');codeLines.push('for i\u003D1, 5 do\u000A  if i % 2 \u003D\u003D 0 then goto continue end\u000A  print(\'odd: \', i)\u000A  ::continue::\u000Aend\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('for i\u003D1, 5, 1 do\u000A    print(i)\u000Aend\u000A');codeLines.push('print(\'loop variable scope is local:\', i) -- i is nil\u000A');codeLines.push('');codeLines.push('for i\u003D1, 10, 1 do\u000A    print(i)\u000A    if i \u003D\u003D 5 then\u000A        break\u000A    end\u000Aend\u000A');codeLines.push('');codeLines.push('arr \u003D {\'a\', \'b\', \'c\', \'d\'}\u000Afor i,v in ipairs(arr) do\u000A    print(i,v)\u000Aend\u000A');codeLines.push('');codeLines.push('for i\u003D1, 5 do\u000A  if i % 2 \u003D\u003D 0 then goto continue end\u000A  print(i)\u000A  ::continue::\u000Aend\u000A');codeLines.push('');
     </script>
     <script src="/site.js" async></script>
   </body>

@@ -14,6 +14,10 @@
           }
           
           
+          if (e.key === "ArrowRight") {
+              window.location.href = '/methods';
+          }
+          
       }
   </script>
   <body>
@@ -80,7 +84,7 @@ with individual arguments.</p>
           <td class="docs">
             <p>If you already have multiple args in a slice,
 apply them to a variadic function using
-<code>func(slice...)</code> like this.</p>
+<code>table.unpack()</code>.</p>
 
           </td>
           <td class="code">
@@ -104,12 +108,12 @@ apply them to a variadic function using
             
             
           <pre class="chroma"><span class="gp">$</span> lua variadic-functions.lua
-<span class="go">items: 	1	2
-</span><span class="go">total: 	3
-</span><span class="go">items: 	1	2	3
-</span><span class="go">total: 	6
-</span><span class="go">items: 	1	2	3	4
-</span><span class="go">total: 	10</span></pre>
+<span class="go">items:     1    2
+</span><span class="go">total:     3
+</span><span class="go">items:     1    2    3
+</span><span class="go">total:     6
+</span><span class="go">items:     1    2    3    4
+</span><span class="go">total:     10</span></pre>
           </td>
         </tr>
         
@@ -128,6 +132,10 @@ to form closures, which we&rsquo;ll look at next.</p>
         
       </table>
       
+      
+      <p class="next">
+        Next example: <a href="/methods">Methods</a>.
+      </p>
       
       <p class="footer">
         by <a href="https://techplexlabs.com">Blake Bourque</a> |
