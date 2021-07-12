@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lua by Example: Functions</title>
+    <link rel=stylesheet href="/site.css">
+    <link rel=stylesheet href="/monokai.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key === "ArrowLeft") {
+              window.location.href = '/if-else';
+          }
+          
+          
+          if (e.key === "ArrowRight") {
+              window.location.href = '/multiple-results';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="functions">
+      <h2><a href="/">Lua by Example</a>: Functions</h2>
+      
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p><em>Functions</em> are central in Lua. We&rsquo;ll learn about
+functions with a few different examples.</p>
+
+          </td>
+          <td class="code empty leading">
+            
+            
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Here&rsquo;s a function that takes two <code>number</code>s and returns
+their sum.</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+              
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
+          <pre class="chroma">
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">plus</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>lua requires explicit returns, i.e. it won&rsquo;t
+automatically return the value of the last
+expression.</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">
+    <span class="kr">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="kr">end</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Call a function just as you&rsquo;d expect, with <code>name(args)</code>.</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">
+<span class="n">print</span><span class="p">(</span><span class="s2">&#34;1+2 =&#34;</span> <span class="o">..</span> <span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Because functions are first-class values in Lua, we can store them
+not only in global variables, but also in local variables and
+in table fields. As we will see later, the use of functions in
+table fields is a key ingredient for some advanced uses of Lua,
+such as packages and object-oriented programming.</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">
+<span class="kd">local</span> <span class="n">subtract</span> <span class="o">=</span> <span class="kr">function</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="kr">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+<span class="kr">end</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>And can be called the same way</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">
+<span class="n">print</span><span class="p">(</span><span class="s2">&#34;2-1 =&#34;</span> <span class="o">..</span> <span class="n">subtract</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Functions without the <code>local</code> keyword become available in
+the global namespace. This distinction becomes important in
+larger Lua programs where where lua files are required by other lua files.</p>
+
+          </td>
+          <td class="code empty">
+            
+            
+          
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="gp">$</span> lua functions.lua
+<span class="go">1+2 =3
+</span><span class="go">2-1 =1</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>There are several other features to Go functions. One is
+multiple return values, which we&rsquo;ll look at next.</p>
+
+          </td>
+          <td class="code empty">
+            
+            
+          
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="/multiple-results">Multiple Results</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://techplexlabs.com">Blake Bourque</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample/blob/master/examples/functions">source</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample#license">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('');codeLines.push('local function plus (a, b)\u000A');codeLines.push('    return a + b\u000Aend\u000A');codeLines.push('print(\"1+2 \u003D\" .. plus(1,2))\u000A');codeLines.push('local subtract \u003D function (a, b)\u000A    return a - b\u000Aend\u000A');codeLines.push('print(\"2-1 \u003D\" .. subtract(2,1))\u000A');codeLines.push('');codeLines.push('');codeLines.push('');
+    </script>
+    <script src="/site.js" async></script>
+  </body>
+</html>

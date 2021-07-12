@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lua by Example: Variables</title>
+    <link rel=stylesheet href="/site.css">
+    <link rel=stylesheet href="/monokai.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key === "ArrowLeft") {
+              window.location.href = '/values';
+          }
+          
+          
+          if (e.key === "ArrowRight") {
+              window.location.href = '/for';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="variables">
+      <h2><a href="/">Lua by Example</a>: Variables</h2>
+      
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>In Lua, <em>variables</em> are declared on first use as global.</p>
+
+          </td>
+          <td class="code empty leading">
+            
+            
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p><code>first</code> is a global variable.</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+              
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
+          <pre class="chroma">
+<span class="n">first</span> <span class="o">=</span> <span class="s2">&#34;initial&#34;</span>
+<span class="n">print</span><span class="p">(</span><span class="n">first</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>You can declare multiple variables at once.</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">
+<span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">print</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Often variables should be declared local to avoid polluting the global scope.</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">
+<span class="kd">local</span> <span class="n">d</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="n">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Variables have no predefined types; any variable may contain values of any type.</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">
+<span class="kd">local</span> <span class="n">value</span> <span class="o">=</span> <span class="s2">&#34;starts as a string&#34;</span>
+<span class="n">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <ul>
+<li>Assigning a value of a another type</li>
+</ul>
+
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">
+<span class="n">value</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <ul>
+<li>To unset the value, assign nil</li>
+</ul>
+
+          </td>
+          <td class="code">
+            
+            
+          <pre class="chroma">
+<span class="n">value</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="n">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+            
+          <pre class="chroma"><span class="gp">$</span> lua variables.lua
+<span class="go">initial
+</span><span class="go">1	2
+</span><span class="go">true
+</span><span class="go">starts as a string
+</span><span class="go">5
+</span><span class="go">nil</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="/for">For</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://techplexlabs.com">Blake Bourque</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample/blob/master/examples/variables">source</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample#license">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('');codeLines.push('first \u003D \"initial\"\u000Aprint(first)\u000A');codeLines.push('b, c \u003D 1, 2\u000Aprint(b, c)\u000A');codeLines.push('local d \u003D true\u000Aprint(d)\u000A');codeLines.push('local value \u003D \"starts as a string\"\u000Aprint(value)\u000A');codeLines.push('value \u003D 5\u000Aprint(value)\u000A');codeLines.push('value \u003D nil\u000Aprint(value)\u000A');codeLines.push('');
+    </script>
+    <script src="/site.js" async></script>
+  </body>
+</html>

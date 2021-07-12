@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lua by Example: Multiple Results</title>
+    <link rel=stylesheet href="/site.css">
+    <link rel=stylesheet href="/monokai.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key === "ArrowLeft") {
+              window.location.href = '/functions';
+          }
+          
+          
+          if (e.key === "ArrowRight") {
+              window.location.href = '/variadic-functions';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="multiple-results">
+      <h2><a href="/">Lua by Example</a>: Multiple Results</h2>
+      
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Lua has built-in support for <em>multiple results</em>.</p>
+
+          </td>
+          <td class="code empty leading">
+            
+            
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>This function returns two number results</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+              
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
+          <pre class="chroma">
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">values</span><span class="p">()</span>
+    <span class="kr">return</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span>
+<span class="kr">end</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Here we use the 2 different return values from the
+call with <em>multiple assignment</em>.</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">values</span><span class="p">()</span>
+<span class="n">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>If you only want a subset of the returned values,
+use the blank identifier <code>_</code>.</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma">
+<span class="n">_</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">values</span><span class="p">()</span>
+<span class="n">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>The <a href="https://www.lua.org/pil/5.1.html">Multiple Results</a> page in the Programming in Lua book has
+more examples that cover the many edge cases</p>
+
+          </td>
+          <td class="code empty">
+            
+            
+          
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="gp">$</span> lua multiple-results.lua
+<span class="go">3
+</span><span class="go">7
+</span><span class="go">7</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Accepting a variable number of arguments is another nice
+feature of Lua functions; we&rsquo;ll look at this next.</p>
+
+          </td>
+          <td class="code empty">
+            
+            
+          
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="/variadic-functions">Variadic Functions</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://techplexlabs.com">Blake Bourque</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample/blob/master/examples/multiple-results">source</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample#license">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('');codeLines.push('local function values()\u000A    return 3, 7\u000Aend\u000A');codeLines.push('a, b \u003D values()\u000Aprint(a)\u000Aprint(b)\u000A');codeLines.push('_, c \u003D values()\u000Aprint(c)\u000A');codeLines.push('');codeLines.push('');codeLines.push('');
+    </script>
+    <script src="/site.js" async></script>
+  </body>
+</html>

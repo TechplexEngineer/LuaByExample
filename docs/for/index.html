@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Lua by Example: For alternate layout</title>
+    <title>Lua by Example: For</title>
     <link rel=stylesheet href="/site.css">
     <link rel=stylesheet href="/monokai.css">
   </head>
@@ -10,19 +10,19 @@
       onkeydown = (e) => {
           
           if (e.key === "ArrowLeft") {
-              window.location.href = '/for';
+              window.location.href = '/variables';
           }
           
           
           if (e.key === "ArrowRight") {
-              window.location.href = '/while';
+              window.location.href = '/for-alternate-layout';
           }
           
       }
   </script>
   <body>
-    <div class="example" id="for-alternate-layout">
-      <h2><a href="/">Lua by Example</a>: For alternate layout</h2>
+    <div class="example" id="for">
+      <h2><a href="/">Lua by Example</a>: For</h2>
       
       
       <table>
@@ -66,45 +66,20 @@ the third expression is optional, when omitted 1 is used as the step.</p>
 despite the lack of the local keyword.</p>
 
           </td>
-          <td class="code">
+          <td class="code leading">
             
             
           <pre class="chroma">
-<span class="n">print</span><span class="p">(</span><span class="s1">&#39;loop variable scope is local:&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="c1">-- i is nil</span></pre>
+<span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1">-- will print nil</span></pre>
           </td>
         </tr>
-        
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code">
-            
-            
-          <pre class="chroma"><span class="gp">$</span> lua for_1_numeric.lua
-<span class="go">first: 	1
-</span><span class="go">first: 	2
-</span><span class="go">first: 	3
-</span><span class="go">first: 	4
-</span><span class="go">first: 	5
-</span><span class="go">loop variable scope is local:	nil</span></pre>
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
         
         <tr>
           <td class="docs">
             <p><code>break</code> can be used to end the loop early</p>
 
           </td>
-          <td class="code">
+          <td class="code leading">
             
             
           <pre class="chroma">
@@ -117,69 +92,22 @@ despite the lack of the local keyword.</p>
           </td>
         </tr>
         
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code">
-            
-            
-          <pre class="chroma"><span class="gp">$</span> lua for_2_break.lua
-<span class="go">brk: 	1
-</span><span class="go">brk: 	2
-</span><span class="go">brk: 	3
-</span><span class="go">brk: 	4
-</span><span class="go">brk: 	5</span></pre>
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
-        
         <tr>
           <td class="docs">
             <p>A <em>generic for</em> loop supports traversing elements returned from an iterator
 print all values of array <code>arr</code></p>
 
           </td>
-          <td class="code">
+          <td class="code leading">
             
             
           <pre class="chroma">
-<span class="n">arr</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">}</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
 <span class="kr">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="kr">in</span> <span class="n">ipairs</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="kr">do</span>
-    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;arr: i,v&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;arr: &#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
 <span class="kr">end</span></pre>
           </td>
         </tr>
-        
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code">
-            
-            
-          <pre class="chroma"><span class="gp">$</span> lua for_3_generic.lua
-<span class="go">arr: i,v	1	a
-</span><span class="go">arr: i,v	2	b
-</span><span class="go">arr: i,v	3	c
-</span><span class="go">arr: i,v	4	d</span></pre>
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
         
         <tr>
           <td class="docs">
@@ -210,8 +138,23 @@ prints odd numbers in [|1,10|]</p>
           <td class="code">
             
             
-          <pre class="chroma"><span class="gp">$</span> lua for_4_continue.lua
-<span class="go">odd: 	1
+          <pre class="chroma"><span class="gp">$</span> lua for.lua
+<span class="go">first: 	1
+</span><span class="go">first: 	2
+</span><span class="go">first: 	3
+</span><span class="go">first: 	4
+</span><span class="go">first: 	5
+</span><span class="go">nil
+</span><span class="go">brk: 	1
+</span><span class="go">brk: 	2
+</span><span class="go">brk: 	3
+</span><span class="go">brk: 	4
+</span><span class="go">brk: 	5
+</span><span class="go">arr: 	1
+</span><span class="go">arr: 	2
+</span><span class="go">arr: 	3
+</span><span class="go">arr: 	4
+</span><span class="go">odd: 	1
 </span><span class="go">odd: 	3
 </span><span class="go">odd: 	5</span></pre>
           </td>
@@ -221,18 +164,18 @@ prints odd numbers in [|1,10|]</p>
       
       
       <p class="next">
-        Next example: <a href="/while">While</a>.
+        Next example: <a href="/for-alternate-layout">For alternate layout</a>.
       </p>
       
       <p class="footer">
         by <a href="https://techplexlabs.com">Blake Bourque</a> |
-        <a href="https://github.com/TechplexEngineer/LuaByExample/blob/master/examples/for-alternate-layout">source</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample/blob/master/examples/for">source</a> |
         <a href="https://github.com/TechplexEngineer/LuaByExample#license">license</a>
       </p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('for i\u003D1, 5, 1 do\u000A    print(\'first: \', i)\u000Aend\u000A');codeLines.push('print(\'loop variable scope is local:\', i) -- i is nil\u000A');codeLines.push('');codeLines.push('for i\u003D1, 10, 1 do\u000A    print(\'brk: \', i)\u000A    if i \u003D\u003D 5 then\u000A        break\u000A    end\u000Aend\u000A');codeLines.push('');codeLines.push('arr \u003D {\'a\', \'b\', \'c\', \'d\'}\u000Afor i,v in ipairs(arr) do\u000A    print(\'arr: i,v\', i,v)\u000Aend\u000A');codeLines.push('');codeLines.push('for i\u003D1, 5 do\u000A  if i % 2 \u003D\u003D 0 then goto continue end\u000A  print(\'odd: \', i)\u000A  ::continue::\u000Aend\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('for i\u003D1, 5, 1 do\u000A    print(\'first: \', i)\u000Aend\u000A');codeLines.push('print(i) -- will print nil\u000A');codeLines.push('for i\u003D1, 10, 1 do\u000A    print(\'brk: \', i)\u000A    if i \u003D\u003D 5 then\u000A        break\u000A    end\u000Aend\u000A');codeLines.push('arr \u003D {1, 2, 3, 4}\u000Afor i,v in ipairs(arr) do\u000A    print(\'arr: \', v)\u000Aend\u000A');codeLines.push('for i\u003D1, 5 do\u000A  if i % 2 \u003D\u003D 0 then goto continue end\u000A  print(\'odd: \', i)\u000A  ::continue::\u000Aend\u000A');codeLines.push('');
     </script>
     <script src="/site.js" async></script>
   </body>

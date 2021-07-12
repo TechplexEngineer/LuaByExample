@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lua by Example: Hello World</title>
+    <link rel=stylesheet href="/site.css">
+    <link rel=stylesheet href="/monokai.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          
+          if (e.key === "ArrowRight") {
+              window.location.href = '/values';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="hello-world">
+      <h2><a href="/">Lua by Example</a>: Hello World</h2>
+      
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Our first program will print the classic &ldquo;hello world&rdquo;
+message. Here&rsquo;s the full source code.</p>
+
+          </td>
+          <td class="code">
+            
+            
+          <pre class="chroma">
+<span class="n">print</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>To run the above program, put the code in a file named <code>hello-world.lua</code> and
+use the <code>lua</code> command to run the file like this:</p>
+
+          </td>
+          <td class="code leading">
+            
+            
+              
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
+          <pre class="chroma">
+<span class="gp">$</span> lua hello-world.lua
+<span class="go">hello world</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Now that we can run and build basic Lua programs, let&rsquo;s
+learn more about the language.</p>
+
+          </td>
+          <td class="code empty">
+            
+            
+          
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="/values">Values</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://techplexlabs.com">Blake Bourque</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample/blob/master/examples/hello-world">source</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample#license">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('print(\'hello world\')\u000A');codeLines.push('');codeLines.push('');
+    </script>
+    <script src="/site.js" async></script>
+  </body>
+</html>
