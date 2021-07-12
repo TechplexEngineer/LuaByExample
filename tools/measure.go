@@ -24,6 +24,8 @@ func readLines(path string) []string {
 
 var commentPat = regexp.MustCompile("\\s*\\/\\/")
 
+const maxLineLength = 58
+
 func main() {
 	sourcePaths, err := filepath.Glob("./examples/*/*")
 	check(err)
@@ -35,10 +37,11 @@ func main() {
 			// Convert tabs to spaces before measuring, so we get an accurate measure
 			// of how long the output will end up being.
 			line := strings.Replace(line, "\t", "    ", -1)
-			if !foundLongLine && !commentPat.MatchString(line) && (utf8.RuneCountInString(line) > 58) {
+			if !foundLongLine && !commentPat.MatchString(line) && (utf8.RuneCountInString(line) > maxLineLength) {
 				fmt.Printf("measure: %s:%d\n", sourcePath, i+1)
 				foundLongLine = true
-				foundLongFile = true
+				fmt.Printf("Found line that is %d chars, limit is %d, over by %d chars. Offending line in %s is:\n%s\n", utf8.RuneCountInString(line), maxLineLength, utf8.RuneCountInString(line)-maxLineLength, sourcePath, line)
+				return
 			}
 		}
 	}

@@ -3,7 +3,8 @@
 -- Here are a few examples.
 
 -- - Strings, which can be concatenated together with `..`
-print("lua" .. "lang")
+-- and can be enclosed in double quotes `"` or single `'`
+print("lua" .. 'lang')
 
 -- - Numbers and math
 print("1+1 =", 1+1)
@@ -19,7 +20,7 @@ print(true or (true and false))
 
 -- Note that nil is false
 if nil then
-    print('true')
+    print('nil is not true')
 else
-    print('false')
+    print('nil is false')
 end

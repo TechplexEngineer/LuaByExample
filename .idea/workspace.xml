@@ -20,17 +20,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63cab3c0-7bf0-43fb-b03b-9ef73a267384" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/example.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/example.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/templates/site.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_1_numeric.lua" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_1_numeric.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_2_break.lua" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_2_break.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_3_generic.lua" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_3_generic.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_4_continue.lua" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_4_continue.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/clean" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples.txt" beforeDir="false" afterPath="$PROJECT_DIR$/examples.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/for/for.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/for/for.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/values/values.lua" beforeDir="false" afterPath="$PROJECT_DIR$/examples/values/values.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/generate.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/generate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/measure.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/measure.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/test" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="GOROOT" path="/usr/local/Cellar/go/1.15.5/libexec" />
+  <component name="GOROOT" path="$USER_HOME$/.local/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -50,7 +65,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/examples/for" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -59,8 +74,30 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/examples/for" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="go build github.com/mmcgrana/gobyexample/tools" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="LuaByExample" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/tools/measure.go" />
+      <package value="github.com/mmcgrana/gobyexample/tools" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build github.com/mmcgrana/gobyexample/tools" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -78,21 +115,64 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state x="184" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1614548672523">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="800" y="423" key="#GOROOT" timestamp="1626098526094">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="184" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1614548672523" />
-    <state x="221" y="64" key="SettingsEditor" timestamp="1614642748327">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="800" y="423" key="#GOROOT/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626098526094" />
+    <state x="755" y="295" width="489" height="384" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1626100181202">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="221" y="64" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1614642748327" />
-    <state x="601" y="277" width="496" height="424" key="cloudConfig.SelfSettingsDialog" timestamp="1614558116690">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="755" y="295" width="489" height="384" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626100181202" />
+    <state width="1989" height="318" key="GridCell.Tab.0.bottom" timestamp="1626100543981">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="601" y="277" width="496" height="424" key="cloudConfig.SelfSettingsDialog/0.23.1440.877@0.23.1440.877" timestamp="1614558116690" />
-    <state x="385" y="195" width="670" height="676" key="search.everywhere.popup" timestamp="1614645590231">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1989" height="318" key="GridCell.Tab.0.bottom/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626100543981" />
+    <state width="1989" height="318" key="GridCell.Tab.0.center" timestamp="1626100543981">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="385" y="195" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1614645590231" />
+    <state width="1989" height="318" key="GridCell.Tab.0.center/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626100543981" />
+    <state width="1989" height="318" key="GridCell.Tab.0.left" timestamp="1626100543981">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1989" height="318" key="GridCell.Tab.0.left/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626100543981" />
+    <state width="1989" height="318" key="GridCell.Tab.0.right" timestamp="1626100543981">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1989" height="318" key="GridCell.Tab.0.right/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626100543981" />
+    <state width="1989" height="318" key="GridCell.Tab.1.bottom" timestamp="1626100543982">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1989" height="318" key="GridCell.Tab.1.bottom/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626100543982" />
+    <state width="1989" height="318" key="GridCell.Tab.1.center" timestamp="1626100543981">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1989" height="318" key="GridCell.Tab.1.center/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626100543981" />
+    <state width="1989" height="318" key="GridCell.Tab.1.left" timestamp="1626100543981">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1989" height="318" key="GridCell.Tab.1.left/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626100543981" />
+    <state width="1989" height="318" key="GridCell.Tab.1.right" timestamp="1626100543982">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1989" height="318" key="GridCell.Tab.1.right/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626100543982" />
+    <state x="709" y="239" width="591" height="502" key="find.popup" timestamp="1626100972490">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="709" y="239" width="591" height="502" key="find.popup/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626100972490" />
+    <state x="668" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1626100773674">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="668" y="214" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626100773674" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/tools/measure.go</url>
+          <line>48</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

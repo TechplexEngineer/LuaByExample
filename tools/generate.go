@@ -155,7 +155,6 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
 	eval := strings.HasSuffix(sourcePath, ".sh")
 	wd, _ := os.Getwd()
 
-
 	// Convert tabs to spaces for uniform rendering.
 	for _, line := range readLines(sourcePath) {
 		lines = append(lines, strings.Replace(line, "\t", "    ", -1))
@@ -296,6 +295,10 @@ func parseExamples() []*Example {
 		example.ID = exampleID
 		example.Segs = make([][]*Seg, 0)
 		sourcePaths := mustGlob("examples/" + exampleID + "/*")
+		if len(sourcePaths) == 0 {
+			fmt.Printf("No source found for exampleID %s\n", exampleID)
+			os.Exit(1)
+		}
 		for _, sourcePath := range sourcePaths {
 
 			sourceSegments, fileContent := parseAndRenderSegs(sourcePath)
@@ -353,12 +356,12 @@ func main() {
 	}
 	ensureDir(siteDir)
 
-	copyFile("templates/site.css",      siteDir+"/site.css")
-	copyFile("templates/monokai.css",   siteDir+"/monokai.css")
-	copyFile("templates/site.js",       siteDir+"/site.js")
-	copyFile("templates/favicon.ico",   siteDir+"/favicon.ico")
-	copyFile("templates/404.html",      siteDir+"/404.html")
-	copyFile("templates/play.png",      siteDir+"/play.png")
+	copyFile("templates/site.css", siteDir+"/site.css")
+	copyFile("templates/monokai.css", siteDir+"/monokai.css")
+	copyFile("templates/site.js", siteDir+"/site.js")
+	copyFile("templates/favicon.ico", siteDir+"/favicon.ico")
+	copyFile("templates/404.html", siteDir+"/404.html")
+	copyFile("templates/play.png", siteDir+"/play.png")
 	copyFile("templates/clipboard.png", siteDir+"/clipboard.png")
 	examples := parseExamples()
 	renderIndex(examples)

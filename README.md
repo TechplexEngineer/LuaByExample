@@ -1,11 +1,11 @@
 # Go by Example
 
-Content and build toolchain for [Go by Example](https://gobyexample.com),
-a site that teaches Go via annotated example programs.
+Content and build toolchain for [Lua by Example](https://luabyexample.techplexlabs.com/),
+a site that teaches Lua via annotated example programs.
 
 ### Overview
 
-The Go by Example site is built by extracting code and
+The Lua by Example site is built by extracting code and
 comments from source files in `examples` and rendering
 them via the `templates` into a static `public`
 directory. The programs implementing this build process
@@ -13,12 +13,9 @@ are in `tools`, along with dependencies specified in
 the `go.mod`file.
 
 The built `public` directory can be served by any
-static content system. The production site uses S3 and
-CloudFront, for example.
+static content system. The production site uses github pages.
 
 ### Building
-
-[![Build Status](https://travis-ci.com/mmcgrana/gobyexample.svg "Travis CI status")](https://travis-ci.com/mmcgrana/gobyexample)
 
 To build the site you'll need Go and Lua installed. Run:
 
@@ -52,7 +49,8 @@ This work is licensed under a
 ### Thanks
 
 
-Thanks to [Mark McGranaghan](https://markmcgranaghan.com/) for [GoByExample](https://gobyexample.com/) and
+Thanks to [Mark McGranaghan](https://markmcgranaghan.com/) for 
+[GoByExample](https://gobyexample.com/) and
 [Jeremy Ashkenas](https://github.com/jashkenas)
 for [Docco](http://jashkenas.github.com/docco/), both of which
 inspired this project.
