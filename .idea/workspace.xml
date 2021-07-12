@@ -20,25 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63cab3c0-7bf0-43fb-b03b-9ef73a267384" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_1_numeric.lua" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_1_numeric.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_2_break.lua" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_2_break.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_3_generic.lua" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_3_generic.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_4_continue.lua" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_4_continue.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/clean" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples.txt" beforeDir="false" afterPath="$PROJECT_DIR$/examples.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/for/for.lua" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/for/for.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/values/values.lua" beforeDir="false" afterPath="$PROJECT_DIR$/examples/values/values.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/generate.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/generate.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/measure.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/measure.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/test" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
