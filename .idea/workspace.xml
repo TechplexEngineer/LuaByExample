@@ -20,26 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63cab3c0-7bf0-43fb-b03b-9ef73a267384" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/utils.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/CONTRIBUTING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples.txt" beforeDir="false" afterPath="$PROJECT_DIR$/examples.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/serve.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/serve.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/clipboard.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/clipboard.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/example.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/example.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/static/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/monokai.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/monokai.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/play.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/play.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/site.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/site.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/generate.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/generate.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/measure.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/measure.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/serve.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/serve.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +136,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="755" y="295" width="489" height="384" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626100181202" />
+    <state x="677" y="228" width="433" height="575" key="#com.intellij.ide.util.MemberChooser" timestamp="1626202813624">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="677" y="228" width="433" height="575" key="#com.intellij.ide.util.MemberChooser/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626202813624" />
     <state width="1563" height="238" key="GridCell.Tab.0.bottom" timestamp="1626173664713">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>

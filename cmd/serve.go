@@ -2,11 +2,14 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/spf13/cobra"
-	"github.com/techplexengineer/luabyexample/tools"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/gorilla/mux"
+	"github.com/spf13/cobra"
+
+	"github.com/techplexengineer/luabyexample/tools"
 )
 
 func RegisterServe(parentCmd *cobra.Command) *cobra.Command {
@@ -27,15 +30,7 @@ Note the static server only listens on localhost and should not
 be used for production or network traffic.`,
 		Run: func(cmd *cobra.Command, args []string) {
 
-			//staticFiles := map[string]struct{}{
-			//	"index.html": {},
-			//	"monokai.css": {},
-			//	"play.png": {},
-			//	"site.css": {},
-			//	"site.js": {},
-			//	"favicon.ico": {},
-			//	"clipboard.png": {},
-			//}
+			r := mux.NewRouter()
 
 			dir := "./static"
 			dirEntries, err := os.ReadDir(dir)
@@ -47,27 +42,30 @@ be used for production or network traffic.`,
 					continue
 				}
 				fileName := entry.Name()
-				http.HandleFunc("/"+fileName, func(w http.ResponseWriter, r *http.Request) {
+				r.HandleFunc("/"+fileName, func(w http.ResponseWriter, r *http.Request) {
 
 					log.Printf("Request for %s", "/"+fileName)
 					http.ServeFile(w, r, "./static/"+fileName)
 				})
 			}
-			http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-				//examples := tools.ParseExamples()
-				tools.RenderIndex(w, tools.GetExampleNamesAndIds("./examples.txt"))
-				//if _, ok := staticFiles[strings.Trim(r.RequestURI, "/")]; ok {
-				//
-				//}
+			r.HandleFunc("/{exampleId}", func(w http.ResponseWriter, r *http.Request) {
 
-				//_, _ = fmt.Fprintf(w, "test \n %s", r.RequestURI)
+				vars := mux.Vars(r)
 
-				//_, _ = w.Write([]byte(fmt.print))
+				example := tools.ParseExample(vars["exampleId"]) //@todo really need example name not id
+				example.PrevExample, example.NextExample = tools.GetPrevNextExample(vars["exampleId"])
+
+				tools.RenderExample(w, example)
+			})
+
+			r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+				examples := tools.GetExampleNamesAndIds("./examples.txt")
+				tools.RenderIndex(w, examples)
 			})
 
 			address := "127.0.0.1:" + port
 			fmt.Printf("Starting server on http://%s\n", address)
-			err = http.ListenAndServe(address, nil)
+			err = http.ListenAndServe(address, r)
 			if err != nil {
 				panic(err)
 			}

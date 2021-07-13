@@ -260,25 +260,8 @@ func ParseExamples() []*Example {
 		if verbose() {
 			fmt.Printf("Processing %s [%d/%d]\n", exampleName, i+1, len(exampleNames))
 		}
-		example := Example{Name: exampleName}
-		exampleID := BuildExampleId(exampleName)
-		example.ID = exampleID
-		example.Segs = make([][]*Seg, 0)
-		sourcePaths := mustGlob("examples/" + exampleID + "/*")
-		if len(sourcePaths) == 0 {
-			fmt.Printf("No source found for exampleID %s\n", exampleID)
-			os.Exit(1)
-		}
-		for _, sourcePath := range sourcePaths {
-
-			sourceSegments, fileContent := parseAndRenderSegs(sourcePath)
-			if fileContent != "" {
-				example.GoCode = fileContent
-			}
-			example.Segs = append(example.Segs, sourceSegments)
-
-		}
-		examples = append(examples, &example)
+		example := ParseExample(exampleName)
+		examples = append(examples, example)
 	}
 	for i, example := range examples {
 		if i > 0 {
@@ -289,6 +272,50 @@ func ParseExamples() []*Example {
 		}
 	}
 	return examples
+}
+
+func GetPrevNextExample(exampleId string) (prev *Example, next *Example) {
+	exampleNames := GetListOfExamples("examples.txt")
+	for i, exampleName := range exampleNames {
+		if exampleId == BuildExampleId(exampleName) {
+			if i-1 > 0 {
+				prev = &Example{
+					ID:   BuildExampleId(exampleNames[i-1]),
+					Name: exampleNames[i-1],
+				}
+			}
+			if i+1 < len(exampleNames)-1 {
+				next = &Example{
+					ID:   BuildExampleId(exampleNames[i+1]),
+					Name: exampleNames[i+1],
+				}
+			}
+		}
+	}
+	return // prev and/or next may be nil. They are set above using the named returns
+}
+
+func ParseExample(exampleName string) *Example {
+	example := Example{Name: exampleName}
+	exampleID := BuildExampleId(exampleName)
+	example.ID = exampleID
+	example.Segs = make([][]*Seg, 0)
+	sourcePaths := mustGlob("examples/" + exampleID + "/*")
+	if len(sourcePaths) == 0 {
+		fmt.Printf("No source found for exampleID %s\n", exampleID)
+		os.Exit(1)
+	}
+	for _, sourcePath := range sourcePaths {
+
+		sourceSegments, fileContent := parseAndRenderSegs(sourcePath)
+		if fileContent != "" {
+			example.GoCode = fileContent
+		}
+		example.Segs = append(example.Segs, sourceSegments)
+
+	}
+	return &example
+
 }
 
 func GetListOfExamples(examplesList string) []string {
@@ -313,7 +340,6 @@ func BuildExampleId(exampleName string) string {
 	return exampleID
 }
 
-// returns a map of exampleID to exampleName
 func GetExampleNamesAndIds(exampleListFile string) []*Example {
 	result := make([]*Example, 0)
 	for _, exampleName := range GetListOfExamples(exampleListFile) {
@@ -350,6 +376,13 @@ func RenderExamples(siteDir string, examples []*Example) {
 		check(err)
 		check(exampleTmpl.Execute(exampleF, example))
 	}
+}
+
+func RenderExample(exampleFileHandle io.Writer, example *Example) {
+	exampleTmpl, err := template.ParseFiles("templates/example.html")
+	check(err)
+
+	check(exampleTmpl.Execute(exampleFileHandle, example))
 }
 
 // Build the site into siteDir
