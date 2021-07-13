@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/.." || exit
 
-rm -rf ../public
+exec go run main.go clean

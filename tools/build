@@ -6,8 +6,6 @@ verbose() {
 	! test -z "$VERBOSE"
 }
 
-verbose && echo "Formatting code..."
-tools/format
 
 verbose && echo "Measuring line lengths..."
 tools/measure

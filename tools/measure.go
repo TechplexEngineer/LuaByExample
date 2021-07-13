@@ -3,36 +3,47 @@ package tools
 import (
 	"fmt"
 	"os"
-	"path/filepath"
 	"regexp"
 	"strings"
 	"unicode/utf8"
 )
 
-var commentPat = regexp.MustCompile("\\s*\\/\\/")
+var commentPat = regexp.MustCompile(`\s*(//|#|--)`)
 
-const maxLineLength = 58
+const maxLineLength = 65
 
+// Count the number of characters in each code line for
+// all enabled examples. Print a message for each file that has lines over maxLineLength
+// set the exit code to 1
 func Measure() {
-	sourcePaths, err := filepath.Glob("./examples/*/*")
-	check(err)
-	foundLongFile := false
-	for _, sourcePath := range sourcePaths {
-		foundLongLine := false
-		lines := readLines(sourcePath)
-		for i, line := range lines {
-			// Convert tabs to spaces before measuring, so we get an accurate measure
-			// of how long the output will end up being.
-			line := strings.Replace(line, "\t", "    ", -1)
-			if !foundLongLine && !commentPat.MatchString(line) && (utf8.RuneCountInString(line) > maxLineLength) {
-				fmt.Printf("measure: %s:%d\n", sourcePath, i+1)
+	exampleNames := GetListOfExamples("examples.txt")
+
+	foundLongLine := false
+	for _, exampleName := range exampleNames {
+		files := mustGlob("examples/" + BuildExampleId(exampleName) + "/*")
+		for _, file := range files {
+			lines := readLines(file)
+			if lineNumber := CheckLongLines(lines); lineNumber != -1 {
+				fmt.Printf("Line too long: %s:%d\n", file, lineNumber)
 				foundLongLine = true
-				fmt.Printf("Found line that is %d chars, limit is %d, over by %d chars. Offending line in %s is:\n%s\n", utf8.RuneCountInString(line), maxLineLength, utf8.RuneCountInString(line)-maxLineLength, sourcePath, line)
-				return
 			}
 		}
 	}
-	if foundLongFile {
+	if foundLongLine {
 		os.Exit(1)
 	}
+}
+
+func CheckLongLines(lines []string) int {
+
+	for lineIndex, line := range lines {
+		// Convert tabs to spaces before measuring, so we get an accurate measure
+		// of how long the output will end up being.
+		line := strings.Replace(line, "\t", "    ", -1)
+		if !commentPat.MatchString(line) && (utf8.RuneCountInString(line) > maxLineLength) {
+			lineNumber := lineIndex + 1
+			return lineNumber
+		}
+	}
+	return -1
 }

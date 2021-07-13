@@ -5,7 +5,7 @@ Values
 
 Variables
 For
-For alternate layout
+#For alternate layout
 While
 If/Else
 
@@ -32,7 +32,7 @@ Methods
 # String Functions -- @todo
 # String Formatting -- @todo
 # Regular Expressions #paterns
-# JSON
+JSON and Library Loading
 # XML
 # Time -- @todo
 # Epoch -- @todo

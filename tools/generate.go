@@ -107,7 +107,7 @@ type Seg struct {
 	DocsRendered template.HTML
 	Code         string
 	CodeRendered template.HTML
-	CodeForJs    string
+	CodeForJs    template.JSStr
 	CodeEmpty    bool
 	CodeLeading  bool
 	CodeRun      bool
@@ -154,10 +154,10 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
 			}
 		}
 	}
-	os.Chdir(wd)
+	_ = os.Chdir(wd)
 	fmt.Printf("----------------\n\n")
 	fileContent := strings.Join(source, "\n")
-	segments := []*Seg{}
+	segments := make([]*Seg, 0)
 	lastSeen := ""
 	for _, line := range lines {
 		if line == "" {
@@ -241,7 +241,7 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string) {
 
 			// adding the content to the js code for copying to the clipboard
 			if strings.HasSuffix(sourcePath, ".lua") {
-				seg.CodeForJs = strings.Trim(seg.Code, "\n") + "\n"
+				seg.CodeForJs = template.JSStr(strings.Trim(seg.Code, "\n") + "\n")
 			}
 		}
 	}
@@ -306,6 +306,13 @@ func ParseExample(exampleName string) *Example {
 		os.Exit(1)
 	}
 	for _, sourcePath := range sourcePaths {
+
+		fileInfo, err := os.Stat(sourcePath)
+		check(err)
+		// skip example subdirectories to allow for library files that are not published
+		if fileInfo.IsDir() {
+			continue
+		}
 
 		sourceSegments, fileContent := parseAndRenderSegs(sourcePath)
 		if fileContent != "" {

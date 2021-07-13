@@ -10,7 +10,9 @@ for i=1, 5, 1 do
 end
 -- Note the variable declared in the loop is local to the body of the loop
 -- despite the lack of the local keyword.
-print(i) -- will print nil
+print('loop variable scope is local:', i) -- will print nil
+
+print()
 
 -- `break` can be used to end the loop early
 for i=1, 10, 1 do
@@ -20,6 +22,8 @@ for i=1, 10, 1 do
     end
 end
 
+print()
+
 -- A _generic for_ loop supports traversing elements returned from an iterator
 -- print all values of array `arr`
 arr = {'a', 'b', 'c', 'd'}
@@ -27,8 +31,10 @@ for i,v in ipairs(arr) do
     print('arr: i, v', i, v)
 end
 
+print()
+
 -- Lua does not have a `continue` construct. A workaround is to use goto.
--- prints odd numbers in [1,5] inclusive
+-- This code prints odd numbers in the range [1,5] inclusive.
 for i=1, 5 do
   if i % 2 == 0 then goto continue end
   print('odd: ', i)

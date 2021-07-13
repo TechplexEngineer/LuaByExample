@@ -20,8 +20,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63cab3c0-7bf0-43fb-b03b-9ef73a267384" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/examples/json-and-library-loading/json.lua" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/json-and-library-loading/json.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/json-and-library-loading/lib/inspect.lua" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/json-and-library-loading/lib/jfjson.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/serve.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/serve.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples.txt" beforeDir="false" afterPath="$PROJECT_DIR$/examples.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/for/for.lua" beforeDir="false" afterPath="$PROJECT_DIR$/examples/for/for.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/json/json.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/json/json.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/example.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/example.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/build" beforeDir="false" afterPath="$PROJECT_DIR$/tools/build" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/build-loop" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/clean" beforeDir="false" afterPath="$PROJECT_DIR$/tools/clean" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/format" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/generate" beforeDir="false" afterPath="$PROJECT_DIR$/tools/generate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/generate.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/generate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/measure" beforeDir="false" afterPath="$PROJECT_DIR$/tools/measure" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/measure.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/measure.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/serve" beforeDir="false" afterPath="$PROJECT_DIR$/tools/serve" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/serve.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/serve.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -174,13 +192,13 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="509" y="165" key="SettingsEditor/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626189903530" />
-    <state x="709" y="239" width="591" height="502" key="find.popup" timestamp="1626176235705">
+    <state x="709" y="239" width="591" height="502" key="find.popup" timestamp="1626215699821">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="709" y="239" width="591" height="502" key="find.popup/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626176235705" />
-    <state x="668" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1626189871484">
+    <state x="709" y="239" width="591" height="502" key="find.popup/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626215699821" />
+    <state x="668" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1626218591969">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="668" y="214" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626189871484" />
+    <state x="668" y="214" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626218591969" />
   </component>
 </project>

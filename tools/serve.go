@@ -17,6 +17,7 @@ func ServeStatic(port string, rootDir string) {
 
 func ServeRebuild(port string) {
 	r := mux.NewRouter()
+	r.StrictSlash(true)
 
 	dir := "./static"
 	dirEntries, err := os.ReadDir(dir)
