@@ -9,7 +9,7 @@ For alternate layout
 While
 If/Else
 
-# Arrays
+# Tables (ie. Arrays, Maps)
 # Maps
 Functions
 Multiple Results

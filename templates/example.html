@@ -34,7 +34,7 @@
           <td class="code{{if .CodeEmpty}} empty{{end}}{{if .CodeLeading}} leading{{end}}">
             {{if .CodeRun}}
               <a href="http://play.golang.org/p/{{$.URLHash}}">
-                <img title="Run code" src="play.png" class="run" />
+                <img title="Run code" src="../static/play.png" class="run" />
               </a>
             {{end}}
             {{if (and .CodeLeading (and $needFirstRender (not .CodeEmpty) ) ) }}

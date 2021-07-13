@@ -1,8 +1,7 @@
-package main
+package tools
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -10,23 +9,11 @@ import (
 	"unicode/utf8"
 )
 
-func check(err error) {
-	if err != nil {
-		panic(err)
-	}
-}
-
-func readLines(path string) []string {
-	srcBytes, err := ioutil.ReadFile(path)
-	check(err)
-	return strings.Split(string(srcBytes), "\n")
-}
-
 var commentPat = regexp.MustCompile("\\s*\\/\\/")
 
 const maxLineLength = 58
 
-func main() {
+func Measure() {
 	sourcePaths, err := filepath.Glob("./examples/*/*")
 	check(err)
 	foundLongFile := false

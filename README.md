@@ -1,4 +1,4 @@
-# Go by Example
+# Lua by Example
 
 Content and build toolchain for [Lua by Example](https://luabyexample.techplexlabs.com/),
 a site that teaches Lua via annotated example programs.

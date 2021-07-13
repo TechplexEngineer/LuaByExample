@@ -1,4 +1,4 @@
-package main
+package tools
 
 import (
 	"bytes"
@@ -7,6 +7,8 @@ import (
 	"github.com/alecthomas/chroma/formatters/html"
 	"github.com/alecthomas/chroma/lexers"
 	"github.com/alecthomas/chroma/styles"
+	"html/template"
+	"io"
 	"io/ioutil"
 	"log"
 	"os"
@@ -15,24 +17,12 @@ import (
 	"path/filepath"
 	"regexp"
 	"strings"
-	"text/template"
 
 	"github.com/russross/blackfriday/v2"
 )
 
-// siteDir is the target directory into which the HTML gets generated. Its
-// default is set here but can be changed by an argument passed into the
-// program.
-var siteDir = "./public"
-
 func verbose() bool {
 	return len(os.Getenv("VERBOSE")) > 0
-}
-
-func check(err error) {
-	if err != nil {
-		panic(err)
-	}
 }
 
 func ensureDir(dir string) {
@@ -79,19 +69,8 @@ func pipe(bin string, arg []string, stdin string) []byte {
 	return fileBytes
 }
 
-func mustReadFile(path string) string {
-	fileBytes, err := ioutil.ReadFile(path)
-	check(err)
-	return string(fileBytes)
-}
-
 func markdown(src string) string {
 	return string(blackfriday.Run([]byte(src)))
-}
-
-func readLines(path string) []string {
-	src := mustReadFile(path)
-	return strings.Split(src, "\n")
 }
 
 func mustGlob(glob string) []string {
@@ -125,9 +104,9 @@ var promptPat = regexp.MustCompile(`^\$\s`)
 // Seg is a segment of an example
 type Seg struct {
 	Docs         string
-	DocsRendered string
+	DocsRendered template.HTML
 	Code         string
-	CodeRendered string
+	CodeRendered template.HTML
 	CodeForJs    string
 	CodeEmpty    bool
 	CodeLeading  bool
@@ -164,7 +143,7 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
 		if eval && promptPat.MatchString(line) {
 			l := promptPat.ReplaceAllString(line, "")
 			log.Printf("Path: %s", path.Dir(sourcePath))
-			os.Chdir(path.Dir(sourcePath))
+			_ = os.Chdir(path.Dir(sourcePath))
 			pwd, _ := os.Getwd()
 			fmt.Printf("exe: |%s| pwd: %s\n", l, pwd)
 
@@ -254,11 +233,11 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string) {
 	for _, seg := range segs {
 		if seg.Docs != "" {
 			//fmt.Printf("docs: |%s|\n", seg.Docs)
-			seg.DocsRendered = markdown(seg.Docs)
+			seg.DocsRendered = template.HTML(markdown(seg.Docs))
 			//fmt.Printf("docs: |%s| - |%s|\n", seg.Docs, seg.DocsRendered)
 		}
 		if seg.Code != "" {
-			seg.CodeRendered = chromaFormat(seg.Code, sourcePath)
+			seg.CodeRendered = template.HTML(chromaFormat(seg.Code, sourcePath))
 
 			// adding the content to the js code for copying to the clipboard
 			if strings.HasSuffix(sourcePath, ".lua") {
@@ -273,27 +252,16 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string) {
 	return segs, filecontent
 }
 
-func parseExamples() []*Example {
-	var exampleNames []string
-	for _, line := range readLines("examples.txt") {
-		if strings.HasPrefix(line, "###END") {
-			break
-		}
-		if line != "" && !strings.HasPrefix(line, "#") {
-			exampleNames = append(exampleNames, line)
-		}
-	}
+func ParseExamples() []*Example {
+
+	exampleNames := GetListOfExamples("examples.txt")
 	examples := make([]*Example, 0)
 	for i, exampleName := range exampleNames {
 		if verbose() {
 			fmt.Printf("Processing %s [%d/%d]\n", exampleName, i+1, len(exampleNames))
 		}
 		example := Example{Name: exampleName}
-		exampleID := strings.ToLower(exampleName)
-		exampleID = strings.Replace(exampleID, " ", "-", -1)
-		exampleID = strings.Replace(exampleID, "/", "-", -1)
-		exampleID = strings.Replace(exampleID, "'", "", -1)
-		exampleID = dashPat.ReplaceAllString(exampleID, "-")
+		exampleID := BuildExampleId(exampleName)
 		example.ID = exampleID
 		example.Segs = make([][]*Seg, 0)
 		sourcePaths := mustGlob("examples/" + exampleID + "/*")
@@ -323,25 +291,57 @@ func parseExamples() []*Example {
 	return examples
 }
 
-func renderIndex(examples []*Example) {
+func GetListOfExamples(examplesList string) []string {
+	var exampleNames []string
+	for _, line := range readLines(examplesList) {
+		if strings.HasPrefix(line, "###END") {
+			break
+		}
+		if line != "" && !strings.HasPrefix(line, "#") {
+			exampleNames = append(exampleNames, line)
+		}
+	}
+	return exampleNames
+}
+
+func BuildExampleId(exampleName string) string {
+	exampleID := strings.ToLower(exampleName)
+	exampleID = strings.Replace(exampleID, " ", "-", -1)
+	exampleID = strings.Replace(exampleID, "/", "-", -1)
+	exampleID = strings.Replace(exampleID, "'", "", -1)
+	exampleID = dashPat.ReplaceAllString(exampleID, "-")
+	return exampleID
+}
+
+// returns a map of exampleID to exampleName
+func GetExampleNamesAndIds(exampleListFile string) []*Example {
+	result := make([]*Example, 0)
+	for _, exampleName := range GetListOfExamples(exampleListFile) {
+		result = append(result, &Example{
+			Name: exampleName,
+			ID:   BuildExampleId(exampleName),
+		})
+	}
+	return result
+}
+
+func RenderIndex(indexFileHandle io.Writer, examples []*Example) {
 	if verbose() {
 		fmt.Println("Rendering index")
 	}
-	indexTmpl := template.New("index")
-	_, err := indexTmpl.Parse(mustReadFile("templates/index.html"))
+
+	indexTmpl, err := template.ParseFiles("templates/index.html")
 	check(err)
-	indexF, err := os.Create(siteDir + "/index.html")
-	check(err)
-	err = indexTmpl.Execute(indexF, examples)
+	err = indexTmpl.Execute(indexFileHandle, examples)
 	check(err)
 }
 
-func renderExamples(examples []*Example) {
+func RenderExamples(siteDir string, examples []*Example) {
 	if verbose() {
 		fmt.Println("Rendering examples")
 	}
-	exampleTmpl := template.New("example")
-	_, err := exampleTmpl.Parse(mustReadFile("templates/example.html"))
+
+	exampleTmpl, err := template.ParseFiles("templates/example.html")
 	check(err)
 	for _, example := range examples {
 		dir := siteDir + "/" + example.ID
@@ -352,22 +352,33 @@ func renderExamples(examples []*Example) {
 	}
 }
 
-func main() {
-	if len(os.Args) > 1 {
-		siteDir = os.Args[1]
+// Build the site into siteDir
+// siteDir is the target directory into which the HTML gets generated.
+// The default will be used if a string of zero length is passed.
+func Generate(siteDir string) {
+
+	if len(siteDir) == 0 {
+		siteDir = "./public"
 	}
+
+	getwd, err := os.Getwd()
+	check(err)
+	fmt.Printf("CWD: %s\n", getwd)
+
 	ensureDir(siteDir)
 
-	copyFile("templates/site.css", siteDir+"/site.css")
-	copyFile("templates/monokai.css", siteDir+"/monokai.css")
-	copyFile("templates/site.js", siteDir+"/site.js")
-	copyFile("templates/favicon.ico", siteDir+"/favicon.ico")
-	copyFile("templates/404.html", siteDir+"/404.html")
-	copyFile("templates/play.png", siteDir+"/play.png")
-	copyFile("templates/clipboard.png", siteDir+"/clipboard.png")
-	examples := parseExamples()
-	renderIndex(examples)
-	renderExamples(examples)
+	copyFile("static/site.css", siteDir+"/site.css")
+	copyFile("static/monokai.css", siteDir+"/monokai.css")
+	copyFile("static/site.js", siteDir+"/site.js")
+	copyFile("static/favicon.ico", siteDir+"/favicon.ico")
+	copyFile("static/404.html", siteDir+"/404.html")
+	copyFile("static/play.png", siteDir+"/play.png")
+	copyFile("static/clipboard.png", siteDir+"/clipboard.png")
+	examples := ParseExamples()
+	indexFileHandle, err := os.Create(siteDir + "/index.html")
+	check(err)
+	RenderIndex(indexFileHandle, examples)
+	RenderExamples(siteDir, examples)
 }
 
 var SimpleShellOutputLexer = chroma.MustNewLexer(

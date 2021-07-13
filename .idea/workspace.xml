@@ -20,81 +20,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63cab3c0-7bf0-43fb-b03b-9ef73a267384" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/utils.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/CONTRIBUTING.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples.txt" beforeDir="false" afterPath="$PROJECT_DIR$/examples.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/channel-buffering/channel-buffering.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/channel-buffering/channel-buffering.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/channel-directions/channel-directions.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/channel-directions/channel-directions.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/channel-synchronization/channel-synchronization.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/channel-synchronization/channel-synchronization.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/channels/channels.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/channels/channels.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/collection-functions/collection-functions.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/collection-functions/collection-functions.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/command-line-arguments/command-line-arguments.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/command-line-arguments/command-line-arguments.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/command-line-arguments/command-line-arguments.sh" beforeDir="false" afterPath="$PROJECT_DIR$/examples/command-line-arguments/command-line-arguments.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/context/context.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/context/context.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/defer/defer.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/defer/defer.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/execing-processes/execing-processes.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/execing-processes/execing-processes.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/execing-processes/execing-processes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/examples/execing-processes/execing-processes.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/exit/exit.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/exit/exit.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/exit/exit.sh" beforeDir="false" afterPath="$PROJECT_DIR$/examples/exit/exit.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/for-alternate-layout/for_1_numeric.lua" beforeDir="false" afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_1_numeric.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/for-alternate-layout/for_2_break.lua" beforeDir="false" afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_2_break.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/for-alternate-layout/for_3_generic.lua" beforeDir="false" afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_3_generic.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/for-alternate-layout/for_4_continue.lua" beforeDir="false" afterPath="$PROJECT_DIR$/examples/for-alternate-layout/for_4_continue.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/for/for.lua" beforeDir="false" afterPath="$PROJECT_DIR$/examples/for/for.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/functions/functions.lua" beforeDir="false" afterPath="$PROJECT_DIR$/examples/functions/functions.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/functions/functions.sh" beforeDir="false" afterPath="$PROJECT_DIR$/examples/functions/functions.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/goroutines/goroutines.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/goroutines/goroutines.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/http-clients/http-clients.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/http-clients/http-clients.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/http-servers/http-servers.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/http-servers/http-servers.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/interfaces/interfaces.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/interfaces/interfaces.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/methods/methods.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/methods/methods.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/methods/methods.sh" beforeDir="false" afterPath="$PROJECT_DIR$/examples/methods/methods.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/mutexes/mutexes.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/mutexes/mutexes.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/non-blocking-channel-operations/non-blocking-channel-operations.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/non-blocking-channel-operations/non-blocking-channel-operations.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/panic/panic.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/panic/panic.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/pointers/pointers.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/pointers/pointers.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/range-over-channels/range-over-channels.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/range-over-channels/range-over-channels.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/range/range.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/range/range.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/rate-limiting/rate-limiting.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/rate-limiting/rate-limiting.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/select/select.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/select/select.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/slices/slices.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/slices/slices.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/stateful-goroutines/stateful-goroutines.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/stateful-goroutines/stateful-goroutines.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/testing/main_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/testing/main_test.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/tickers/tickers.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/tickers/tickers.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/variadic-functions/variadic-functions.lua" beforeDir="false" afterPath="$PROJECT_DIR$/examples/variadic-functions/variadic-functions.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/waitgroups/waitgroups.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/waitgroups/waitgroups.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/worker-pools/worker-pools.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/worker-pools/worker-pools.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/build" beforeDir="false" afterPath="$PROJECT_DIR$/tools/build" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/clipboard.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/clipboard.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/example.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/example.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/static/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/monokai.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/monokai.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/play.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/play.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/site.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/generate.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/generate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/measure.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/measure.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/serve.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/serve.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" path="$USER_HOME$/.local/local/go" />
   <component name="Git.Settings">
@@ -110,6 +67,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -126,6 +84,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/cmd" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/examples/for" />
     </key>
@@ -188,22 +151,22 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="755" y="295" width="489" height="384" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626100181202" />
-    <state width="1563" height="238" key="GridCell.Tab.0.bottom" timestamp="1626119078783">
+    <state width="1563" height="238" key="GridCell.Tab.0.bottom" timestamp="1626173664713">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1563" height="238" key="GridCell.Tab.0.bottom/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626119078783" />
-    <state width="1563" height="238" key="GridCell.Tab.0.center" timestamp="1626119078783">
+    <state width="1563" height="238" key="GridCell.Tab.0.bottom/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626173664713" />
+    <state width="1563" height="238" key="GridCell.Tab.0.center" timestamp="1626173664713">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1563" height="238" key="GridCell.Tab.0.center/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626119078783" />
-    <state width="1563" height="238" key="GridCell.Tab.0.left" timestamp="1626119078783">
+    <state width="1563" height="238" key="GridCell.Tab.0.center/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626173664713" />
+    <state width="1563" height="238" key="GridCell.Tab.0.left" timestamp="1626173664713">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1563" height="238" key="GridCell.Tab.0.left/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626119078783" />
-    <state width="1563" height="238" key="GridCell.Tab.0.right" timestamp="1626119078783">
+    <state width="1563" height="238" key="GridCell.Tab.0.left/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626173664713" />
+    <state width="1563" height="238" key="GridCell.Tab.0.right" timestamp="1626173664713">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1563" height="238" key="GridCell.Tab.0.right/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626119078783" />
+    <state width="1563" height="238" key="GridCell.Tab.0.right/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626173664713" />
     <state width="1968" height="350" key="GridCell.Tab.1.bottom" timestamp="1626107747971">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -220,28 +183,17 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state width="1968" height="350" key="GridCell.Tab.1.right/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626107747971" />
-    <state x="509" y="165" key="SettingsEditor" timestamp="1626103621105">
+    <state x="509" y="165" key="SettingsEditor" timestamp="1626189903530">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="509" y="165" key="SettingsEditor/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626103621105" />
-    <state x="709" y="239" width="591" height="502" key="find.popup" timestamp="1626119134701">
+    <state x="509" y="165" key="SettingsEditor/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626189903530" />
+    <state x="709" y="239" width="591" height="502" key="find.popup" timestamp="1626176235705">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="709" y="239" width="591" height="502" key="find.popup/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626119134701" />
-    <state x="668" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1626107645067">
+    <state x="709" y="239" width="591" height="502" key="find.popup/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626176235705" />
+    <state x="668" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1626189871484">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="668" y="214" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626107645067" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/tools/measure.go</url>
-          <line>48</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="668" y="214" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626189871484" />
   </component>
 </project>

@@ -1,13 +1,12 @@
-package main
+package tools
 
 import (
-	"fmt"
 	"net/http"
 )
 
-func main() {
-	port := "8000"
-	publicDir := "public"
-	fmt.Printf("Serving Go by Example at http://127.0.0.1:%s\n", port)
-	http.ListenAndServe(":"+port, http.FileServer(http.Dir(publicDir)))
+func ServeStatic(port string, rootDir string) {
+	err := http.ListenAndServe("127.0.0.1:"+port, http.FileServer(http.Dir(rootDir)))
+	if err != nil {
+		panic(err)
+	}
 }
