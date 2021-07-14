@@ -10,7 +10,7 @@ const defaultRootDir = "./public"
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	// rootCmd represents the base command when called without any subcommands
-	rootCmd := &cobra.Command{
+	rootCmd := &cobra.Command{ //nolint:exhaustivestruct
 		Use:   "luabyexample",
 		Short: "Toolbelt for developing/testing/building the site",
 		Long: `LuaByExample is inspired by GoByExample and 
