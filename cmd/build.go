@@ -1,24 +1,24 @@
 package cmd
 
 import (
-	"fmt"
-	"github.com/techplexengineer/luabyexample/tools"
+	"log"
 
 	"github.com/spf13/cobra"
+	"github.com/techplexengineer/luabyexample/tools"
 )
 
 func RegisterBuild(parentCmd *cobra.Command) *cobra.Command {
-
 	var siteDir string
 
 	// buildCmd represents the build command
-	var buildCmd = &cobra.Command{
+	buildCmd := &cobra.Command{ //nolint:exhaustivestruct
 		Use:   "build",
 		Short: "Generate static web content from examples.",
 		Long:  `Parse code examples, execute shell files to capture output, render templates to public directory`,
 		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Println("build called")
+			log.Print("Starting Build")
 			tools.Generate(siteDir)
+			log.Print("Build Completed")
 		},
 	}
 
@@ -26,5 +26,6 @@ func RegisterBuild(parentCmd *cobra.Command) *cobra.Command {
 
 	// directory flag applies only to build command
 	buildCmd.Flags().StringVarP(&siteDir, "directory", "d", defaultRootDir, "Directory to output built site into")
+
 	return buildCmd
 }

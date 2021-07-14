@@ -2,19 +2,15 @@ package cmd
 
 import (
 	"github.com/spf13/cobra"
-
 	"github.com/techplexengineer/luabyexample/tools"
 )
 
 func RegisterServe(parentCmd *cobra.Command) *cobra.Command {
-
-	var (
-		// port to listen on
-		port string
-	)
+	// port to listen on
+	var port string
 
 	// serveCmd represents the serve command
-	var serveCmd = &cobra.Command{
+	serveCmd := &cobra.Command{ //nolint:exhaustivestruct
 		Use:   "serve",
 		Short: "start a web server to view the generated site",
 		Long: `The web server will rebuild the requested page 

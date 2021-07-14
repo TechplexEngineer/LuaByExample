@@ -2,10 +2,11 @@ package tools
 
 import (
 	"fmt"
-	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/gorilla/mux"
 )
 
 func ServeStatic(port string, rootDir string) {
@@ -20,26 +21,29 @@ func ServeRebuild(port string) {
 	r.StrictSlash(true)
 
 	dir := "./static"
+
 	dirEntries, err := os.ReadDir(dir)
 	if err != nil {
 		log.Print(fmt.Errorf("unable to list files in %s - %w", dir, err))
 	}
+
 	for _, entry := range dirEntries {
 		if entry.IsDir() {
 			continue
 		}
-		fileName := entry.Name()
-		r.HandleFunc("/"+fileName, func(w http.ResponseWriter, r *http.Request) {
 
+		fileName := entry.Name()
+
+		r.HandleFunc("/"+fileName, func(w http.ResponseWriter, r *http.Request) {
 			log.Printf("Request for %s", "/"+fileName)
 			http.ServeFile(w, r, "./static/"+fileName)
 		})
 	}
-	r.HandleFunc("/{exampleId}", func(w http.ResponseWriter, r *http.Request) {
 
+	r.HandleFunc("/{exampleId}", func(w http.ResponseWriter, r *http.Request) {
 		vars := mux.Vars(r)
 
-		example := ParseExample(vars["exampleId"]) //@todo really need example name not id
+		example := ParseExample(vars["exampleId"]) // @todo really need example name not id
 		example.PrevExample, example.NextExample = GetPrevNextExample(vars["exampleId"])
 
 		RenderExample(w, example)
@@ -51,9 +55,6 @@ func ServeRebuild(port string) {
 	})
 
 	address := "127.0.0.1:" + port
-	fmt.Printf("Starting server on http://%s\n", address)
-	err = http.ListenAndServe(address, r)
-	if err != nil {
-		panic(err)
-	}
+	log.Printf("Starting server on http://%s\n", address)
+	check(http.ListenAndServe(address, r))
 }

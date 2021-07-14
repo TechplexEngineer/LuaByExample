@@ -20,27 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63cab3c0-7bf0-43fb-b03b-9ef73a267384" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/examples/json-and-library-loading/json.lua" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/json-and-library-loading/json.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/json-and-library-loading/lib/inspect.lua" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/json-and-library-loading/lib/jfjson.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples.txt" beforeDir="false" afterPath="$PROJECT_DIR$/examples.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/for/for.lua" beforeDir="false" afterPath="$PROJECT_DIR$/examples/for/for.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/json/json.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/json/json.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/site.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/example.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/example.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/build" beforeDir="false" afterPath="$PROJECT_DIR$/tools/build" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/build-loop" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/clean" beforeDir="false" afterPath="$PROJECT_DIR$/tools/clean" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/format" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/generate" beforeDir="false" afterPath="$PROJECT_DIR$/tools/generate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/build.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/build.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/clean.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/clean.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/root.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/root.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/serve.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/serve.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/serveStatic.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/serveStatic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/generate.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/generate.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/measure" beforeDir="false" afterPath="$PROJECT_DIR$/tools/measure" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/measure.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/measure.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/serve" beforeDir="false" afterPath="$PROJECT_DIR$/tools/serve" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/serve.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/serve.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/utils.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +44,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="$USER_HOME$/.local/local/go" />
+  <component name="GOROOT" path="/usr/local/Cellar/go/1.16.5/libexec" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -82,7 +72,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -120,9 +110,9 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -140,10 +130,19 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state x="800" y="423" key="#GOROOT" timestamp="1626098526094">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="593" y="259" key="#File_Watchers" timestamp="1626227291418">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="593" y="259" key="#File_Watchers/0.23.1440.877@0.23.1440.877" timestamp="1626227291418" />
+    <state x="563" y="357" key="#GOROOT" timestamp="1626224155650">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="800" y="423" key="#GOROOT/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626098526094" />
+    <state x="563" y="357" key="#GOROOT/0.23.1440.877@0.23.1440.877" timestamp="1626224155650" />
+    <state x="443" y="306" width="677" height="489" key="#Go_Linter" timestamp="1626224777544">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="443" y="306" width="677" height="489" key="#Go_Linter/0.23.1440.877@0.23.1440.877" timestamp="1626224777544" />
     <state x="463" y="148" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1626102997089">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -188,17 +187,20 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state width="1968" height="350" key="GridCell.Tab.1.right/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626107747971" />
-    <state x="509" y="165" key="SettingsEditor" timestamp="1626189903530">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="358" y="153" key="SettingsEditor" timestamp="1626227145604">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="509" y="165" key="SettingsEditor/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626189903530" />
-    <state x="709" y="239" width="591" height="502" key="find.popup" timestamp="1626215699821">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="358" y="153" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1626227145604" />
+    <state x="499" y="211" width="568" height="490" key="find.popup" timestamp="1626225532697">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="709" y="239" width="591" height="502" key="find.popup/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626215699821" />
-    <state x="668" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1626218591969">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="499" y="211" width="568" height="490" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1626225532697" />
+    <state x="470" y="192" width="670" height="535" key="search.everywhere.popup" timestamp="1626227028979">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="668" y="214" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112/4096.0.2048.1152/2048.0.2048.1152@0.0.2048.1112" timestamp="1626218591969" />
+    <state x="470" y="192" width="670" height="535" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1626227028979" />
   </component>
 </project>
