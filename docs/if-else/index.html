@@ -128,7 +128,12 @@ Note that you don&rsquo;t need parentheses around conditions</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('if 7 % 2 \u003D\u003D 0 then\u000A    print(\"7 is even\")\u000Aelse\u000A    print(\"7 is odd\")\u000Aend\u000A');codeLines.push('if 8 % 4 \u003D\u003D 0 then\u000A    print(\"8 is divisible by 4\")\u000Aend\u000A');codeLines.push('local num \u003D 9\u000Aif num \u003C 0 then\u000A    print(num, \"is negative\")\u000Aelseif num \u003C 10 then\u000A    print(num, \"has 1 digit\")\u000Aelse\u000A    print(num, \"has multiple digits\")\u000Aend\u000A');codeLines.push('');
+      codeLines.push('');
+      codeLines.push('if 7 % 2 == 0 then\n    print(\u00227 is even\u0022)\nelse\n    print(\u00227 is odd\u0022)\nend\n');
+      codeLines.push('if 8 % 4 == 0 then\n    print(\u00228 is divisible by 4\u0022)\nend\n');
+      codeLines.push('local num = 9\nif num \u003c 0 then\n    print(num, \u0022is negative\u0022)\nelseif num \u003c 10 then\n    print(num, \u0022has 1 digit\u0022)\nelse\n    print(num, \u0022has multiple digits\u0022)\nend\n');
+      codeLines.push('');
+      
     </script>
     <script src="/site.js" async></script>
   </body>

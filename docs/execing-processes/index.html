@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Lua by Example: Exec'ing Processes</title>
+    <title>Lua by Example: Exec&#39;ing Processes</title>
     <link rel=stylesheet href="/site.css">
     <link rel=stylesheet href="/monokai.css">
   </head>
@@ -22,7 +22,7 @@
   </script>
   <body>
     <div class="example" id="execing-processes">
-      <h2><a href="/">Lua by Example</a>: Exec'ing Processes</h2>
+      <h2><a href="/">Lua by Example</a>: Exec&#39;ing Processes</h2>
       
       
       <table>
@@ -119,7 +119,11 @@ closing the handle.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('local success \u003D os.execute(\'mkdir -p /tmp/example\')\u000Aif success then\u000A    print(\'successfully created directory\')\u000Aend\u000A');codeLines.push('local handle \u003D io.popen(\"date --date\u003D\'@2147483647\'\")\u000Aif handle \u003D\u003D nil then\u000A    return\u000Aend\u000Alocal stdout \u003D handle:read()\u000Asuccess \u003D handle:close()\u000Aif success then\u000A    print(\'output is:\', stdout)\u000Aelse\u000A    print(\'error when executing command\')\u000Aend\u000A');codeLines.push('');
+      codeLines.push('');
+      codeLines.push('local success = os.execute(\u0027mkdir -p \/tmp\/example\u0027)\nif success then\n    print(\u0027successfully created directory\u0027)\nend\n');
+      codeLines.push('local handle = io.popen(\u0022date --date=\u0027@2147483647\u0027\u0022)\nif handle == nil then\n    return\nend\nlocal stdout = handle:read()\nsuccess = handle:close()\nif success then\n    print(\u0027output is:\u0027, stdout)\nelse\n    print(\u0027error when executing command\u0027)\nend\n');
+      codeLines.push('');
+      
     </script>
     <script src="/site.js" async></script>
   </body>

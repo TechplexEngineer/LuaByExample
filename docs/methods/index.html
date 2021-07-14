@@ -15,7 +15,7 @@
           
           
           if (e.key === "ArrowRight") {
-              window.location.href = '/command-line-arguments';
+              window.location.href = '/json-and-library-loading';
           }
           
       }
@@ -300,7 +300,7 @@ changes will only affect new instances</p>
       
       
       <p class="next">
-        Next example: <a href="/command-line-arguments">Command-Line Arguments</a>.
+        Next example: <a href="/json-and-library-loading">JSON and Library Loading</a>.
       </p>
       
       <p class="footer">
@@ -311,7 +311,27 @@ changes will only affect new instances</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('local My_Psuedo_Class \u003D {\u000A    shared \u003D \"string is shared\"\u000A}\u000A');codeLines.push('function My_Psuedo_Class:new()\u000A');codeLines.push('    local instance \u003D {\u000A        unique \u003D \"string is unique\"\u000A    }\u000A');codeLines.push('    setmetatable(instance, { __index \u003D My_Psuedo_Class })\u000A');codeLines.push('    return instance\u000Aend\u000A');codeLines.push('function My_Psuedo_Class:method(new_val)\u000A    self.shared \u003D new_val\u000A    self.unique \u003D new_val\u000Aend\u000A');codeLines.push('function My_Psuedo_Class:print()\u000A    print(\'shared: \', self.shared, \' unique: \'..self.unique)\u000Aend\u000A');codeLines.push('local instance_a \u003D My_Psuedo_Class:new()\u000Alocal instance_b \u003D My_Psuedo_Class:new()\u000A');codeLines.push('instance_a:print()\u000Ainstance_b:print()\u000Aprint()\u000A');codeLines.push('My_Psuedo_Class.shared \u003D \"new shared state\"\u000A');codeLines.push('instance_a:print()\u000Ainstance_b:print()\u000Aprint()\u000A');codeLines.push('instance_a:method(\'overwrite first\')\u000Ainstance_b:method(\'overwrite second\')\u000A');codeLines.push('instance_a:print()\u000Ainstance_b:print()\u000Aprint()\u000A');codeLines.push('My_Psuedo_Class.shared \u003D \"only in inst. c\"\u000Alocal instance_c \u003D My_Psuedo_Class:new()\u000A');codeLines.push('instance_a:print()\u000Ainstance_b:print()\u000Ainstance_c:print()\u000A');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('');
+      codeLines.push('local My_Psuedo_Class = {\n    shared = \u0022string is shared\u0022\n}\n');
+      codeLines.push('function My_Psuedo_Class:new()\n');
+      codeLines.push('    local instance = {\n        unique = \u0022string is unique\u0022\n    }\n');
+      codeLines.push('    setmetatable(instance, { __index = My_Psuedo_Class })\n');
+      codeLines.push('    return instance\nend\n');
+      codeLines.push('function My_Psuedo_Class:method(new_val)\n    self.shared = new_val\n    self.unique = new_val\nend\n');
+      codeLines.push('function My_Psuedo_Class:print()\n    print(\u0027shared: \u0027, self.shared, \u0027 unique: \u0027..self.unique)\nend\n');
+      codeLines.push('local instance_a = My_Psuedo_Class:new()\nlocal instance_b = My_Psuedo_Class:new()\n');
+      codeLines.push('instance_a:print()\ninstance_b:print()\nprint()\n');
+      codeLines.push('My_Psuedo_Class.shared = \u0022new shared state\u0022\n');
+      codeLines.push('instance_a:print()\ninstance_b:print()\nprint()\n');
+      codeLines.push('instance_a:method(\u0027overwrite first\u0027)\ninstance_b:method(\u0027overwrite second\u0027)\n');
+      codeLines.push('instance_a:print()\ninstance_b:print()\nprint()\n');
+      codeLines.push('My_Psuedo_Class.shared = \u0022only in inst. c\u0022\nlocal instance_c = My_Psuedo_Class:new()\n');
+      codeLines.push('instance_a:print()\ninstance_b:print()\ninstance_c:print()\n');
+      codeLines.push('');
+      codeLines.push('');
+      codeLines.push('');
+      codeLines.push('');
+      
     </script>
     <script src="/site.js" async></script>
   </body>

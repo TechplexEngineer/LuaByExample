@@ -147,7 +147,14 @@ feature of Lua functions; we&rsquo;ll look at this next.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('local function values()\u000A    return 3, 7\u000Aend\u000A');codeLines.push('a, b \u003D values()\u000Aprint(a)\u000Aprint(b)\u000A');codeLines.push('_, c \u003D values()\u000Aprint(c)\u000A');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('');
+      codeLines.push('local function values()\n    return 3, 7\nend\n');
+      codeLines.push('a, b = values()\nprint(a)\nprint(b)\n');
+      codeLines.push('_, c = values()\nprint(c)\n');
+      codeLines.push('');
+      codeLines.push('');
+      codeLines.push('');
+      
     </script>
     <script src="/site.js" async></script>
   </body>

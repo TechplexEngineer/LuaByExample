@@ -10,7 +10,7 @@
       onkeydown = (e) => {
           
           if (e.key === "ArrowLeft") {
-              window.location.href = '/for-alternate-layout';
+              window.location.href = '/for';
           }
           
           
@@ -99,7 +99,10 @@
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('local i \u003D 1\u000Awhile i \u003C 5 do\u000A    print(i)\u000A    i \u003D i + 1\u000Aend\u000A');codeLines.push('while true do\u000A   print(\"This loop will run forever.\")\u000A   break\u000Aend\u000A');codeLines.push('');
+      codeLines.push('local i = 1\nwhile i \u003c 5 do\n    print(i)\n    i = i \u002b 1\nend\n');
+      codeLines.push('while true do\n   print(\u0022This loop will run forever.\u0022)\n   break\nend\n');
+      codeLines.push('');
+      
     </script>
     <script src="/site.js" async></script>
   </body>

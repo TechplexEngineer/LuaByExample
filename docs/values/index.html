@@ -163,7 +163,14 @@ and can be enclosed in double quotes <code>&quot;</code> or single <code>'</code
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('print(\"lua\" .. \'lang\')\u000A');codeLines.push('print(\"1+1 \u003D\", 1+1)\u000Aprint(\"7.0/3.0 \u003D\", 7.0/3.0)\u000A');codeLines.push('print(true and false)\u000Aprint(true or false)\u000Aprint(not true)\u000A');codeLines.push('print(true or (true and false))\u000A');codeLines.push('if nil then\u000A    print(\'nil is not true\')\u000Aelse\u000A    print(\'nil is false\')\u000Aend\u000A');codeLines.push('');
+      codeLines.push('');
+      codeLines.push('print(\u0022lua\u0022 .. \u0027lang\u0027)\n');
+      codeLines.push('print(\u00221\u002b1 =\u0022, 1\u002b1)\nprint(\u00227.0\/3.0 =\u0022, 7.0\/3.0)\n');
+      codeLines.push('print(true and false)\nprint(true or false)\nprint(not true)\n');
+      codeLines.push('print(true or (true and false))\n');
+      codeLines.push('if nil then\n    print(\u0027nil is not true\u0027)\nelse\n    print(\u0027nil is false\u0027)\nend\n');
+      codeLines.push('');
+      
     </script>
     <script src="/site.js" async></script>
   </body>

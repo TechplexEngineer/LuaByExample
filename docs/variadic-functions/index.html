@@ -145,7 +145,13 @@ to form closures, which we&rsquo;ll look at next.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('local function sum(...)\u000A    print(\"items: \", ...)\u000A    total \u003D 0\u000A    for idx, num in ipairs({...}) do\u000A        total \u003D total + num\u000A    end\u000A    print(\"total: \",total)\u000Aend\u000A');codeLines.push('sum(1, 2)\u000Asum(1, 2, 3)\u000A');codeLines.push('nums \u003D {1, 2, 3, 4}\u000Asum(table.unpack(nums))\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('');
+      codeLines.push('local function sum(...)\n    print(\u0022items: \u0022, ...)\n    total = 0\n    for idx, num in ipairs({...}) do\n        total = total \u002b num\n    end\n    print(\u0022total: \u0022,total)\nend\n');
+      codeLines.push('sum(1, 2)\nsum(1, 2, 3)\n');
+      codeLines.push('nums = {1, 2, 3, 4}\nsum(table.unpack(nums))\n');
+      codeLines.push('');
+      codeLines.push('');
+      
     </script>
     <script src="/site.js" async></script>
   </body>

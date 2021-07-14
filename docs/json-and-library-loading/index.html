@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lua by Example: JSON and Library Loading</title>
+    <link rel=stylesheet href="/site.css">
+    <link rel=stylesheet href="/monokai.css">
+  </head>
+  <script>
+      onkeydown = (e) => {
+          
+          if (e.key === "ArrowLeft") {
+              window.location.href = '/methods';
+          }
+          
+          
+          if (e.key === "ArrowRight") {
+              window.location.href = '/command-line-arguments';
+          }
+          
+      }
+  </script>
+  <body>
+    <div class="example" id="json-and-library-loading">
+      <h2><a href="/">Lua by Example</a>: JSON and Library Loading</h2>
+      
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Lua does not have built in JSON support. However there are many
+open source libraries available from the community. The Lua Wiki
+has a <a href="http://lua-users.org/wiki/JsonModules">listing of json libraries</a></p>
+
+          </td>
+          <td class="code empty leading">
+            
+            
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>The examples here use the <a href="http://regex.info/blog/lua/json">jf-JSON library</a></p>
+
+          </td>
+          <td class="code empty leading">
+            
+            
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>The require function searches LUA_PATH and LUA_CPATH
+For more about require see the Section <a href="https://www.lua.org/pil/8.1.html">8.1 of the PIL guide</a></p>
+
+          </td>
+          <td class="code leading">
+            
+            
+              
+              <img title="Copy code" src="/clipboard.png" class="copy" />
+            
+          <pre class="chroma">
+<span class="kd">local</span> <span class="n">JSON</span> <span class="o">=</span> <span class="n">require</span> <span class="s1">&#39;jfjson&#39;</span>
+<span class="kd">local</span> <span class="n">inspect</span> <span class="o">=</span> <span class="n">require</span> <span class="s1">&#39;inspect&#39;</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="kd">local</span> <span class="n">lua_value</span> <span class="o">=</span> <span class="n">JSON</span><span class="p">:</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;[ &#34;Larry&#34;, &#34;Curly&#34;, &#34;Moe&#34; ]&#39;</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="s1">&#39;json array -&gt; lua&#39;</span><span class="p">,</span> <span class="n">inspect</span><span class="p">(</span><span class="n">lua_value</span><span class="p">))</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="kd">local</span> <span class="n">raw_json_text</span> <span class="o">=</span> <span class="n">JSON</span><span class="p">:</span><span class="n">encode</span><span class="p">({</span> <span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="s2">&#34;c&#34;</span><span class="p">})</span>
+<span class="n">print</span><span class="p">(</span><span class="s1">&#39;lua -&gt; json array: &#39;</span><span class="p">,</span> <span class="n">raw_json_text</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+            
+          <pre class="chroma"><span class="kd">local</span> <span class="n">raw_json_map</span> <span class="o">=</span> <span class="n">JSON</span><span class="p">:</span><span class="n">encode</span><span class="p">({</span>
+    <span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span>
+<span class="p">})</span>
+<span class="n">print</span><span class="p">(</span><span class="s1">&#39;lua -&gt; json map: &#39;</span><span class="p">,</span> <span class="n">raw_json_map</span><span class="p">)</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>We can override the LUA_PATH variable and ask
+all require calls to search the locations listed
+in order from left to right. If LUA_PATH is unset
+the default is typically <code>?;?.lua</code></p>
+
+          </td>
+          <td class="code">
+            
+            
+          <pre class="chroma">
+<span class="gp">$</span> LUA_PATH=&#34;?;?.lua;lib/?.lua&#34; lua json.lua
+<span class="go">json array -&gt; lua    { &#34;Larry&#34;, &#34;Curly&#34;, &#34;Moe&#34; }
+</span><span class="go">lua -&gt; json array:     [&#34;a&#34;,&#34;b&#34;,&#34;c&#34;]
+</span><span class="go">lua -&gt; json map:     {&#34;key&#34;:&#34;value&#34;}</span></pre>
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Next example: <a href="/command-line-arguments">Command-Line Arguments</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://techplexlabs.com">Blake Bourque</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample/blob/master/examples/json-and-library-loading">source</a> |
+        <a href="https://github.com/TechplexEngineer/LuaByExample#license">license</a>
+      </p>
+    </div>
+    <script>
+      var codeLines = [];
+      codeLines.push('');
+      codeLines.push('');
+      codeLines.push('local JSON = require \u0027jfjson\u0027\nlocal inspect = require \u0027inspect\u0027\n');
+      codeLines.push('local lua_value = JSON:decode(\u0027[ \u0022Larry\u0022, \u0022Curly\u0022, \u0022Moe\u0022 ]\u0027)\nprint(\u0027json array -\u003e lua\u0027, inspect(lua_value))\n');
+      codeLines.push('local raw_json_text = JSON:encode({ \u0022a\u0022, \u0022b\u0022, \u0022c\u0022})\nprint(\u0027lua -\u003e json array: \u0027, raw_json_text)\n');
+      codeLines.push('local raw_json_map = JSON:encode({\n    [\u0027key\u0027] = \u0027value\u0027\n})\nprint(\u0027lua -\u003e json map: \u0027, raw_json_map)\n');
+      codeLines.push('');
+      
+    </script>
+    <script src="/site.js" async></script>
+  </body>
+</html>

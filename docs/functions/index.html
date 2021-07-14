@@ -177,7 +177,16 @@ multiple return values, which we&rsquo;ll look at next.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('local function plus (a, b)\u000A');codeLines.push('    return a + b\u000Aend\u000A');codeLines.push('print(\"1+2 \u003D\" .. plus(1,2))\u000A');codeLines.push('local subtract \u003D function (a, b)\u000A    return a - b\u000Aend\u000A');codeLines.push('print(\"2-1 \u003D\" .. subtract(2,1))\u000A');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('');
+      codeLines.push('local function plus (a, b)\n');
+      codeLines.push('    return a \u002b b\nend\n');
+      codeLines.push('print(\u00221\u002b2 =\u0022 .. plus(1,2))\n');
+      codeLines.push('local subtract = function (a, b)\n    return a - b\nend\n');
+      codeLines.push('print(\u00222-1 =\u0022 .. subtract(2,1))\n');
+      codeLines.push('');
+      codeLines.push('');
+      codeLines.push('');
+      
     </script>
     <script src="/site.js" async></script>
   </body>

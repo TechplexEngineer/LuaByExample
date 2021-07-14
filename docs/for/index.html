@@ -15,7 +15,7 @@
           
           
           if (e.key === "ArrowRight") {
-              window.location.href = '/for-alternate-layout';
+              window.location.href = '/while';
           }
           
       }
@@ -70,7 +70,18 @@ despite the lack of the local keyword.</p>
             
             
           <pre class="chroma">
-<span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1">-- will print nil</span></pre>
+<span class="n">print</span><span class="p">(</span><span class="s1">&#39;loop variable scope is local:&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="c1">-- will print nil</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="n">print</span><span class="p">()</span></pre>
           </td>
         </tr>
         
@@ -94,6 +105,17 @@ despite the lack of the local keyword.</p>
         
         <tr>
           <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="n">print</span><span class="p">()</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
             <p>A <em>generic for</em> loop supports traversing elements returned from an iterator
 print all values of array <code>arr</code></p>
 
@@ -111,8 +133,19 @@ print all values of array <code>arr</code></p>
         
         <tr>
           <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="n">print</span><span class="p">()</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
             <p>Lua does not have a <code>continue</code> construct. A workaround is to use goto.
-prints odd numbers in [1,5] inclusive</p>
+This code prints odd numbers in the range [1,5] inclusive.</p>
 
           </td>
           <td class="code">
@@ -135,7 +168,7 @@ prints odd numbers in [1,5] inclusive</p>
           <td class="docs">
             
           </td>
-          <td class="code">
+          <td class="code leading">
             
             
           <pre class="chroma"><span class="gp">$</span> lua for.lua
@@ -144,17 +177,47 @@ prints odd numbers in [1,5] inclusive</p>
 </span><span class="go">first:     3
 </span><span class="go">first:     4
 </span><span class="go">first:     5
-</span><span class="go">nil
-</span><span class="go">brk:     1
+</span><span class="go">loop variable scope is local:    nil</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="go">brk:     1
 </span><span class="go">brk:     2
 </span><span class="go">brk:     3
 </span><span class="go">brk:     4
-</span><span class="go">brk:     5
-</span><span class="go">arr: i, v    1    a
+</span><span class="go">brk:     5</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+            
+            
+          <pre class="chroma"><span class="go">arr: i, v    1    a
 </span><span class="go">arr: i, v    2    b
 </span><span class="go">arr: i, v    3    c
-</span><span class="go">arr: i, v    4    d
-</span><span class="go">odd:     1
+</span><span class="go">arr: i, v    4    d</span></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+            
+            
+          <pre class="chroma"><span class="go">odd:     1
 </span><span class="go">odd:     3
 </span><span class="go">odd:     5</span></pre>
           </td>
@@ -164,7 +227,7 @@ prints odd numbers in [1,5] inclusive</p>
       
       
       <p class="next">
-        Next example: <a href="/for-alternate-layout">For alternate layout</a>.
+        Next example: <a href="/while">While</a>.
       </p>
       
       <p class="footer">
@@ -175,7 +238,20 @@ prints odd numbers in [1,5] inclusive</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('for i\u003D1, 5, 1 do\u000A    print(\'first: \', i)\u000Aend\u000A');codeLines.push('print(i) -- will print nil\u000A');codeLines.push('for i\u003D1, 10, 1 do\u000A    print(\'brk: \', i)\u000A    if i \u003D\u003D 5 then\u000A        break\u000A    end\u000Aend\u000A');codeLines.push('arr \u003D {\'a\', \'b\', \'c\', \'d\'}\u000Afor i,v in ipairs(arr) do\u000A    print(\'arr: i, v\', i, v)\u000Aend\u000A');codeLines.push('for i\u003D1, 5 do\u000A  if i % 2 \u003D\u003D 0 then goto continue end\u000A  print(\'odd: \', i)\u000A  ::continue::\u000Aend\u000A');codeLines.push('');
+      codeLines.push('');
+      codeLines.push('for i=1, 5, 1 do\n    print(\u0027first: \u0027, i)\nend\n');
+      codeLines.push('print(\u0027loop variable scope is local:\u0027, i) -- will print nil\n');
+      codeLines.push('print()\n');
+      codeLines.push('for i=1, 10, 1 do\n    print(\u0027brk: \u0027, i)\n    if i == 5 then\n        break\n    end\nend\n');
+      codeLines.push('print()\n');
+      codeLines.push('arr = {\u0027a\u0027, \u0027b\u0027, \u0027c\u0027, \u0027d\u0027}\nfor i,v in ipairs(arr) do\n    print(\u0027arr: i, v\u0027, i, v)\nend\n');
+      codeLines.push('print()\n');
+      codeLines.push('for i=1, 5 do\n  if i % 2 == 0 then goto continue end\n  print(\u0027odd: \u0027, i)\n  ::continue::\nend\n');
+      codeLines.push('');
+      codeLines.push('');
+      codeLines.push('');
+      codeLines.push('');
+      
     </script>
     <script src="/site.js" async></script>
   </body>

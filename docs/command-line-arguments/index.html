@@ -10,7 +10,7 @@
       onkeydown = (e) => {
           
           if (e.key === "ArrowLeft") {
-              window.location.href = '/methods';
+              window.location.href = '/json-and-library-loading';
           }
           
           
@@ -122,7 +122,12 @@ For example, <code>$ mkdir /tmp/fred</code> on the command line invokes the <cod
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('local function dump(o)\u000A   if type(o) \u003D\u003D \'table\' then\u000A      local s \u003D \'{ \'\u000A      for k,v in pairs(o) do\u000A         if type(k) ~\u003D \'number\' then k \u003D \'\"\'..k..\'\"\' end\u000A         s \u003D s .. \'[\'..k..\'] \u003D \' .. dump(v) .. \',\'\u000A      end\u000A      return s .. \'} \'\u000A   else\u000A      return tostring(o)\u000A   end\u000Aend\u000A');codeLines.push('local args \u003D {...}\u000A');codeLines.push('print(dump(args))\u000A');codeLines.push('');
+      codeLines.push('');
+      codeLines.push('local function dump(o)\n   if type(o) == \u0027table\u0027 then\n      local s = \u0027{ \u0027\n      for k,v in pairs(o) do\n         if type(k) ~= \u0027number\u0027 then k = \u0027\u0022\u0027..k..\u0027\u0022\u0027 end\n         s = s .. \u0027[\u0027..k..\u0027] = \u0027 .. dump(v) .. \u0027,\u0027\n      end\n      return s .. \u0027} \u0027\n   else\n      return tostring(o)\n   end\nend\n');
+      codeLines.push('local args = {...}\n');
+      codeLines.push('print(dump(args))\n');
+      codeLines.push('');
+      
     </script>
     <script src="/site.js" async></script>
   </body>
