@@ -32,6 +32,9 @@ jobs:
 #          dpkg -L lua5.3
 #          which lua5.3
 #          update-alternatives --all
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '^1.16'
 
 
       - name: Build site
